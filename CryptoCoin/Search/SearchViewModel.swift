@@ -13,6 +13,7 @@ class SearchViewModel {
     var inputCancelButtonTrigger: Observable<Void?> = Observable(nil)
     
     var outputSearchList: Observable<[Coin]> = Observable([])
+    var outputSearchState = Observable(true)
     
     init() {
         inputSearchText.bind { text in
@@ -37,9 +38,11 @@ class SearchViewModel {
         
         // 특수문자가 들어 있는 경우
         if let _ = regex?.firstMatch(in: noSpacingText, options: [], range: NSRange(location: 0, length: noSpacingText.count)) {
+            outputSearchState.value = false
             return
         }
         
+        outputSearchState.value = true
         fetch(query: noSpacingText)
     }
     

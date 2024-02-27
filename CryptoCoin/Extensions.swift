@@ -32,3 +32,14 @@ extension UILabel {
         self.attributedText = attributeString
     }
 }
+
+extension UIViewController {
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+    }
+}

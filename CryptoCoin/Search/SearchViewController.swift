@@ -19,9 +19,7 @@ class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.outputSearchList.bind { _ in
-            self.searchView.tableView.reloadData()
-        }
+        bindData()
     }
     
     override func configureView(navigationTitle: String) {
@@ -45,10 +43,6 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         viewModel.inputCancelButtonTrigger.value = ()
     }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.inputSearchText.value = searchText
-    }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -68,5 +62,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureCell(data, searchText: searchText)
         
         return cell
+    }
+}
+
+extension SearchViewController {
+    func bindData() {
+        viewModel.outputSearchList.bind { _ in
+            self.searchView.tableView.reloadData()
+        }
+        
+        viewModel.outputSearchState.bind { state in
+            if state == false {
+                self.showAlert(title: "검색 에러", message: "특수문자를 포함할 수 없습니다")
+                self.searchView.searchController.searchBar.text = ""
+                self.viewModel.outputSearchState.value = true
+            }
+        }
     }
 }

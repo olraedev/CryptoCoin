@@ -35,6 +35,8 @@
 		EC96DB402B8DEC7800732CF5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EC96DB3F2B8DEC7800732CF5 /* Kingfisher */; };
 		EC96DB432B8E1F2200732CF5 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EC96DB422B8E1F2200732CF5 /* Realm */; };
 		EC96DB452B8E1F2200732CF5 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC96DB442B8E1F2200732CF5 /* RealmSwift */; };
+		EC96DB482B8E1FCE00732CF5 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB472B8E1FCE00732CF5 /* RealmModel.swift */; };
+		EC96DB4A2B8E232600732CF5 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB492B8E232600732CF5 /* RealmRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		EC96DB372B8DD83900732CF5 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		EC96DB392B8DDA1E00732CF5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		EC96DB3B2B8DDA3A00732CF5 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		EC96DB472B8E1FCE00732CF5 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		EC96DB492B8E232600732CF5 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 				EC96DB3B2B8DDA3A00732CF5 /* Observable.swift */,
 				EC96DB3D2B8DE7C600732CF5 /* Design */,
 				EC96DB2E2B8DC63700732CF5 /* API */,
+				EC96DB462B8E1FBC00732CF5 /* Realm */,
 				EC96DB152B8DB67700732CF5 /* Base */,
 				EC96DB1C2B8DB74A00732CF5 /* Custom */,
 				EC96DB082B8DB01700732CF5 /* Trending */,
@@ -197,6 +202,15 @@
 				EC96DB1F2B8DB9E800732CF5 /* Design.swift */,
 			);
 			path = Design;
+			sourceTree = "<group>";
+		};
+		EC96DB462B8E1FBC00732CF5 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				EC96DB472B8E1FCE00732CF5 /* RealmModel.swift */,
+				EC96DB492B8E232600732CF5 /* RealmRepository.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +309,10 @@
 				EC96DB122B8DB0B000732CF5 /* FavoriteViewController.swift in Sources */,
 				EC96DB302B8DC68200732CF5 /* CoingeckoAPIManager.swift in Sources */,
 				EC96DB172B8DB6A900732CF5 /* BaseViewController.swift in Sources */,
+				EC96DB4A2B8E232600732CF5 /* RealmRepository.swift in Sources */,
 				EC96DB142B8DB0B800732CF5 /* SettingViewController.swift in Sources */,
 				EC96DB352B8DC92200732CF5 /* CoingeckoAPI.swift in Sources */,
+				EC96DB482B8E1FCE00732CF5 /* RealmModel.swift in Sources */,
 				EC96DB2B2B8DC14D00732CF5 /* Extensions.swift in Sources */,
 				EC96DB2D2B8DC15600732CF5 /* Protocols.swift in Sources */,
 				EC96DB192B8DB6E600732CF5 /* BaseView.swift in Sources */,
