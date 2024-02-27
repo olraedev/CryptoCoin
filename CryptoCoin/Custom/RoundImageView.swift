@@ -22,8 +22,5 @@ class RoundImageView: UIImageView {
         super.layoutSubviews()
         clipsToBounds = true
         layer.cornerRadius = frame.width / 2
-        self.snp.makeConstraints { make in
-            make.size.equalTo(40)
-        }
     }
 }

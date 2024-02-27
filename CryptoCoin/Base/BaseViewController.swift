@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class BaseViewController: UIViewController {
     
@@ -18,11 +19,14 @@ class BaseViewController: UIViewController {
     }
     
     func configureView(navigationTitle: String) {
-        view.backgroundColor = Color.customWhite
+        view.backgroundColor = Design.Color.customWhite.fill
         
         profileImageView.image = UIImage.profile
-        profileImageView.layer.borderColor = Color.customPurple.cgColor
-        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = Design.Color.customPurple.fill.cgColor
+        profileImageView.layer.borderWidth = 3
+        profileImageView.snp.makeConstraints { make in
+            make.size.equalTo(40)
+        }
         
         navigationItem.title = navigationTitle
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileImageView)

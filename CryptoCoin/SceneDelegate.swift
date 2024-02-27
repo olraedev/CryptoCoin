@@ -22,13 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         
-        let trandingVC = UINavigationController(rootViewController: TrandingViewController())
+        let trandingVC = UINavigationController(rootViewController: TrendingViewController())
         let searchVC = UINavigationController(rootViewController: SearchViewController())
         let favoriteVC = UINavigationController(rootViewController: FavoriteViewController())
         let settingVC = UINavigationController(rootViewController: SettingViewController())
         
         trandingVC.tabBarItem = UITabBarItem(title: nil, image: .tabTrendInactive, selectedImage: .tabTrend)
         searchVC.tabBarItem = UITabBarItem(title: nil, image: .tabSearchInactive, selectedImage: .tabSearch)
+        searchVC.tabBarItem.selectedImage = .tabSearch
         favoriteVC.tabBarItem = UITabBarItem(title: nil, image: .tabPortfolioInactive, selectedImage: .tabPortfolio)
         settingVC.tabBarItem = UITabBarItem(title: nil, image: .tabUserInactive, selectedImage: .tabUser)
         
