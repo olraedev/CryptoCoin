@@ -56,7 +56,7 @@ extension SearchTableViewCell {
         contentView.addSubview(favoriteButton)
     }
     
-    func configureCell(_ data: Coin, searchText: String?) {
+    func configureCell(_ data: CoingeckoCoin, searchText: String?) {
         let url = URL(string: data.large)
         
         thumbImageView.kf.setImage(with: url)

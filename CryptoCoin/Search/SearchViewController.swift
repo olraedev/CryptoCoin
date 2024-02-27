@@ -75,7 +75,6 @@ extension SearchViewController {
             if state == false {
                 self.showAlert(title: "검색 에러", message: "특수문자를 포함할 수 없습니다")
                 self.searchView.searchController.searchBar.text = ""
-                self.viewModel.outputSearchState.value = true
             }
         }
     }
