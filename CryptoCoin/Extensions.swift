@@ -22,12 +22,12 @@ extension UILabel {
         let attributeString = NSMutableAttributedString(string: text)
         
         // 색깔
-        attributeString.addAttribute(.foregroundColor, value: Design.Color.customPurple.fill, range: (text as NSString).range(of: searchText.uppercased()))
-        attributeString.addAttribute(.foregroundColor, value: Design.Color.customPurple.fill, range: (text as NSString).range(of: searchText.lowercased()))
+        attributeString.addAttribute(.foregroundColor, value: Design.Color.customPurple.fill, range: (text.uppercased() as NSString).range(of: searchText.uppercased()))
+        attributeString.addAttribute(.foregroundColor, value: Design.Color.customPurple.fill, range: (text.lowercased() as NSString).range(of: searchText.lowercased()))
         
         // bold
-        attributeString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: self.font.pointSize), range: (text as NSString).range(of: searchText.uppercased()))
-        attributeString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: self.font.pointSize), range: (text as NSString).range(of: searchText.lowercased()))
+        attributeString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: self.font.pointSize), range: (text.uppercased() as NSString).range(of: searchText.uppercased()))
+        attributeString.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: self.font.pointSize), range: (text.lowercased() as NSString).range(of: searchText.lowercased()))
         
         self.attributedText = attributeString
     }
