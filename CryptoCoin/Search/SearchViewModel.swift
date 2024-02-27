@@ -59,8 +59,8 @@ class SearchViewModel {
             let minute = timeInterval / 60
 
             // 15분 안 지남
-            if minute <= 15 {
-                print("15분 안 지남, \(minute)분 지남")
+            if minute < 15 {
+                print("검색어 \(text)는 검색한 지 15분 안 지남, \(minute)분 지남")
                 // 일단 삭제
                 self.outputSearchList.value.removeAll()
                 // 현재 저장되어 있는 coins 빼와서 outputSearchList에 넣어주기
@@ -70,7 +70,7 @@ class SearchViewModel {
                 }
                 return
             } else {
-                print("15분 지남, \(minute)분 지남")
+                print("검색어 \(text)는 검색한 지 \(minute)분 지나서 다시 불러옵니다")
                 repository.delete(objects: value)
             }
         }
