@@ -16,6 +16,17 @@
 		EC96DB102B8DB0A600732CF5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB0F2B8DB0A600732CF5 /* SearchViewController.swift */; };
 		EC96DB122B8DB0B000732CF5 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB112B8DB0B000732CF5 /* FavoriteViewController.swift */; };
 		EC96DB142B8DB0B800732CF5 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB132B8DB0B800732CF5 /* SettingViewController.swift */; };
+		EC96DB172B8DB6A900732CF5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB162B8DB6A900732CF5 /* BaseViewController.swift */; };
+		EC96DB192B8DB6E600732CF5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB182B8DB6E600732CF5 /* BaseView.swift */; };
+		EC96DB1B2B8DB74600732CF5 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB1A2B8DB74600732CF5 /* RoundImageView.swift */; };
+		EC96DB1E2B8DB9A500732CF5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC96DB1D2B8DB9A500732CF5 /* .gitignore */; };
+		EC96DB202B8DB9E800732CF5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB1F2B8DB9E800732CF5 /* Color.swift */; };
+		EC96DB232B8DBD0100732CF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC96DB222B8DBD0100732CF5 /* SnapKit */; };
+		EC96DB252B8DBD0100732CF5 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EC96DB242B8DBD0100732CF5 /* SnapKit-Dynamic */; };
+		EC96DB272B8DBF8E00732CF5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB262B8DBF8E00732CF5 /* SearchView.swift */; };
+		EC96DB292B8DBFDB00732CF5 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB282B8DBFDB00732CF5 /* SearchTableViewCell.swift */; };
+		EC96DB2B2B8DC14D00732CF5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB2A2B8DC14D00732CF5 /* Extensions.swift */; };
+		EC96DB2D2B8DC15600732CF5 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB2C2B8DC15600732CF5 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +41,15 @@
 		EC96DB0F2B8DB0A600732CF5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		EC96DB112B8DB0B000732CF5 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		EC96DB132B8DB0B800732CF5 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		EC96DB162B8DB6A900732CF5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EC96DB182B8DB6E600732CF5 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		EC96DB1A2B8DB74600732CF5 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		EC96DB1D2B8DB9A500732CF5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EC96DB1F2B8DB9E800732CF5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		EC96DB262B8DBF8E00732CF5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		EC96DB282B8DBFDB00732CF5 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		EC96DB2A2B8DC14D00732CF5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		EC96DB2C2B8DC15600732CF5 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC96DB232B8DBD0100732CF5 /* SnapKit in Frameworks */,
+				EC96DB252B8DBD0100732CF5 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +84,11 @@
 		EC96DAF12B8DACA400732CF5 /* CryptoCoin */ = {
 			isa = PBXGroup;
 			children = (
+				EC96DB1F2B8DB9E800732CF5 /* Color.swift */,
+				EC96DB2C2B8DC15600732CF5 /* Protocols.swift */,
+				EC96DB2A2B8DC14D00732CF5 /* Extensions.swift */,
+				EC96DB152B8DB67700732CF5 /* Base */,
+				EC96DB1C2B8DB74A00732CF5 /* Custom */,
 				EC96DB082B8DB01700732CF5 /* Tranding */,
 				EC96DB092B8DB02C00732CF5 /* Search */,
 				EC96DB0A2B8DB03C00732CF5 /* Favorite */,
@@ -73,6 +100,7 @@
 				EC96DB062B8DADBD00732CF5 /* Colors.xcassets */,
 				EC96DAFD2B8DACA600732CF5 /* LaunchScreen.storyboard */,
 				EC96DB002B8DACA600732CF5 /* Info.plist */,
+				EC96DB1D2B8DB9A500732CF5 /* .gitignore */,
 			);
 			path = CryptoCoin;
 			sourceTree = "<group>";
@@ -88,7 +116,9 @@
 		EC96DB092B8DB02C00732CF5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				EC96DB262B8DBF8E00732CF5 /* SearchView.swift */,
 				EC96DB0F2B8DB0A600732CF5 /* SearchViewController.swift */,
+				EC96DB282B8DBFDB00732CF5 /* SearchTableViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -116,6 +146,23 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		EC96DB152B8DB67700732CF5 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EC96DB182B8DB6E600732CF5 /* BaseView.swift */,
+				EC96DB162B8DB6A900732CF5 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		EC96DB1C2B8DB74A00732CF5 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				EC96DB1A2B8DB74600732CF5 /* RoundImageView.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +179,10 @@
 			dependencies = (
 			);
 			name = CryptoCoin;
+			packageProductDependencies = (
+				EC96DB222B8DBD0100732CF5 /* SnapKit */,
+				EC96DB242B8DBD0100732CF5 /* SnapKit-Dynamic */,
+			);
 			productName = CryptoCoin;
 			productReference = EC96DAEF2B8DACA400732CF5 /* CryptoCoin.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +211,9 @@
 				Base,
 			);
 			mainGroup = EC96DAE62B8DACA400732CF5;
+			packageReferences = (
+				EC96DB212B8DBD0100732CF5 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = EC96DAF02B8DACA400732CF5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -174,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC96DB1E2B8DB9A500732CF5 /* .gitignore in Resources */,
 				EC96DB072B8DADBD00732CF5 /* Colors.xcassets in Resources */,
 				EC96DAFF2B8DACA600732CF5 /* LaunchScreen.storyboard in Resources */,
 				EC96DAFC2B8DACA600732CF5 /* Assets.xcassets in Resources */,
@@ -190,9 +245,17 @@
 				EC96DB0E2B8DB09700732CF5 /* TrandingViewController.swift in Sources */,
 				EC96DAF32B8DACA400732CF5 /* AppDelegate.swift in Sources */,
 				EC96DB102B8DB0A600732CF5 /* SearchViewController.swift in Sources */,
+				EC96DB202B8DB9E800732CF5 /* Color.swift in Sources */,
 				EC96DAF52B8DACA400732CF5 /* SceneDelegate.swift in Sources */,
 				EC96DB122B8DB0B000732CF5 /* FavoriteViewController.swift in Sources */,
+				EC96DB172B8DB6A900732CF5 /* BaseViewController.swift in Sources */,
 				EC96DB142B8DB0B800732CF5 /* SettingViewController.swift in Sources */,
+				EC96DB2B2B8DC14D00732CF5 /* Extensions.swift in Sources */,
+				EC96DB2D2B8DC15600732CF5 /* Protocols.swift in Sources */,
+				EC96DB192B8DB6E600732CF5 /* BaseView.swift in Sources */,
+				EC96DB292B8DBFDB00732CF5 /* SearchTableViewCell.swift in Sources */,
+				EC96DB1B2B8DB74600732CF5 /* RoundImageView.swift in Sources */,
+				EC96DB272B8DBF8E00732CF5 /* SearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +478,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC96DB212B8DBD0100732CF5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC96DB222B8DBD0100732CF5 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC96DB212B8DBD0100732CF5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		EC96DB242B8DBD0100732CF5 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC96DB212B8DBD0100732CF5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC96DAE72B8DACA400732CF5 /* Project object */;
 }
