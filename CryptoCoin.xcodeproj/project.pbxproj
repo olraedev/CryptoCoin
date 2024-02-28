@@ -29,7 +29,7 @@
 		EC96DB302B8DC68200732CF5 /* CoingeckoAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB2F2B8DC68200732CF5 /* CoingeckoAPIManager.swift */; };
 		EC96DB332B8DC8A400732CF5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EC96DB322B8DC8A400732CF5 /* Alamofire */; };
 		EC96DB352B8DC92200732CF5 /* CoingeckoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB342B8DC92200732CF5 /* CoingeckoAPI.swift */; };
-		EC96DB382B8DD83900732CF5 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB372B8DD83900732CF5 /* Search.swift */; };
+		EC96DB382B8DD83900732CF5 /* CoingeckoSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB372B8DD83900732CF5 /* CoingeckoSearchData.swift */; };
 		EC96DB3A2B8DDA1E00732CF5 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB392B8DDA1E00732CF5 /* SearchViewModel.swift */; };
 		EC96DB3C2B8DDA3B00732CF5 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB3B2B8DDA3A00732CF5 /* Observable.swift */; };
 		EC96DB402B8DEC7800732CF5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EC96DB3F2B8DEC7800732CF5 /* Kingfisher */; };
@@ -37,6 +37,10 @@
 		EC96DB452B8E1F2200732CF5 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EC96DB442B8E1F2200732CF5 /* RealmSwift */; };
 		EC96DB482B8E1FCE00732CF5 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB472B8E1FCE00732CF5 /* RealmModel.swift */; };
 		EC96DB4A2B8E232600732CF5 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB492B8E232600732CF5 /* RealmRepository.swift */; };
+		ECC91A792B8F065500F9D4AC /* CoingeckoMarketData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A782B8F065500F9D4AC /* CoingeckoMarketData.swift */; };
+		ECC91A7B2B8F0DDB00F9D4AC /* FormatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A7A2B8F0DDB00F9D4AC /* FormatManager.swift */; };
+		ECC91A7E2B8F171900F9D4AC /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = ECC91A7D2B8F171900F9D4AC /* Toast */; };
+		ECC91A802B8F18B100F9D4AC /* FavoriteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A7F2B8F18B100F9D4AC /* FavoriteState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,11 +65,14 @@
 		EC96DB2C2B8DC15600732CF5 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		EC96DB2F2B8DC68200732CF5 /* CoingeckoAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoAPIManager.swift; sourceTree = "<group>"; };
 		EC96DB342B8DC92200732CF5 /* CoingeckoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoAPI.swift; sourceTree = "<group>"; };
-		EC96DB372B8DD83900732CF5 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		EC96DB372B8DD83900732CF5 /* CoingeckoSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoSearchData.swift; sourceTree = "<group>"; };
 		EC96DB392B8DDA1E00732CF5 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		EC96DB3B2B8DDA3A00732CF5 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		EC96DB472B8E1FCE00732CF5 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
 		EC96DB492B8E232600732CF5 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		ECC91A782B8F065500F9D4AC /* CoingeckoMarketData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoMarketData.swift; sourceTree = "<group>"; };
+		ECC91A7A2B8F0DDB00F9D4AC /* FormatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatManager.swift; sourceTree = "<group>"; };
+		ECC91A7F2B8F18B100F9D4AC /* FavoriteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +85,7 @@
 				EC96DB332B8DC8A400732CF5 /* Alamofire in Frameworks */,
 				EC96DB232B8DBD0100732CF5 /* SnapKit in Frameworks */,
 				EC96DB252B8DBD0100732CF5 /* SnapKit-Dynamic in Frameworks */,
+				ECC91A7E2B8F171900F9D4AC /* Toast in Frameworks */,
 				EC96DB432B8E1F2200732CF5 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +115,7 @@
 				EC96DB2C2B8DC15600732CF5 /* Protocols.swift */,
 				EC96DB2A2B8DC14D00732CF5 /* Extensions.swift */,
 				EC96DB3B2B8DDA3A00732CF5 /* Observable.swift */,
+				ECC91A7A2B8F0DDB00F9D4AC /* FormatManager.swift */,
 				EC96DB3D2B8DE7C600732CF5 /* Design */,
 				EC96DB2E2B8DC63700732CF5 /* API */,
 				EC96DB462B8E1FBC00732CF5 /* Realm */,
@@ -138,6 +147,7 @@
 		EC96DB092B8DB02C00732CF5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				ECC91A7F2B8F18B100F9D4AC /* FavoriteState.swift */,
 				EC96DB262B8DBF8E00732CF5 /* SearchView.swift */,
 				EC96DB0F2B8DB0A600732CF5 /* SearchViewController.swift */,
 				EC96DB392B8DDA1E00732CF5 /* SearchViewModel.swift */,
@@ -189,7 +199,8 @@
 		EC96DB2E2B8DC63700732CF5 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				EC96DB372B8DD83900732CF5 /* Search.swift */,
+				EC96DB372B8DD83900732CF5 /* CoingeckoSearchData.swift */,
+				ECC91A782B8F065500F9D4AC /* CoingeckoMarketData.swift */,
 				EC96DB342B8DC92200732CF5 /* CoingeckoAPI.swift */,
 				EC96DB2F2B8DC68200732CF5 /* CoingeckoAPIManager.swift */,
 			);
@@ -236,6 +247,7 @@
 				EC96DB3F2B8DEC7800732CF5 /* Kingfisher */,
 				EC96DB422B8E1F2200732CF5 /* Realm */,
 				EC96DB442B8E1F2200732CF5 /* RealmSwift */,
+				ECC91A7D2B8F171900F9D4AC /* Toast */,
 			);
 			productName = CryptoCoin;
 			productReference = EC96DAEF2B8DACA400732CF5 /* CryptoCoin.app */;
@@ -270,6 +282,7 @@
 				EC96DB312B8DC8A400732CF5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EC96DB3E2B8DEC7800732CF5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				EC96DB412B8E1F2200732CF5 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				ECC91A7C2B8F171900F9D4AC /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = EC96DAF02B8DACA400732CF5 /* Products */;
 			projectDirPath = "";
@@ -299,11 +312,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC96DB3C2B8DDA3B00732CF5 /* Observable.swift in Sources */,
+				ECC91A792B8F065500F9D4AC /* CoingeckoMarketData.swift in Sources */,
 				EC96DB0E2B8DB09700732CF5 /* TrendingViewController.swift in Sources */,
 				EC96DAF32B8DACA400732CF5 /* AppDelegate.swift in Sources */,
 				EC96DB102B8DB0A600732CF5 /* SearchViewController.swift in Sources */,
 				EC96DB202B8DB9E800732CF5 /* Design.swift in Sources */,
-				EC96DB382B8DD83900732CF5 /* Search.swift in Sources */,
+				EC96DB382B8DD83900732CF5 /* CoingeckoSearchData.swift in Sources */,
 				EC96DAF52B8DACA400732CF5 /* SceneDelegate.swift in Sources */,
 				EC96DB3A2B8DDA1E00732CF5 /* SearchViewModel.swift in Sources */,
 				EC96DB122B8DB0B000732CF5 /* FavoriteViewController.swift in Sources */,
@@ -319,6 +333,8 @@
 				EC96DB292B8DBFDB00732CF5 /* SearchTableViewCell.swift in Sources */,
 				EC96DB1B2B8DB74600732CF5 /* RoundImageView.swift in Sources */,
 				EC96DB272B8DBF8E00732CF5 /* SearchView.swift in Sources */,
+				ECC91A7B2B8F0DDB00F9D4AC /* FormatManager.swift in Sources */,
+				ECC91A802B8F18B100F9D4AC /* FavoriteState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +591,14 @@
 				version = 10.47.0;
 			};
 		};
+		ECC91A7C2B8F171900F9D4AC /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -607,6 +631,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC96DB412B8E1F2200732CF5 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		ECC91A7D2B8F171900F9D4AC /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECC91A7C2B8F171900F9D4AC /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

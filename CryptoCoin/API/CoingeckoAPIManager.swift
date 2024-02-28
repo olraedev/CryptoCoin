@@ -18,7 +18,7 @@ class CoingeckoAPIManager {
             case .success(let success):
                 completionHandler(success)
             case .failure(let failure):
-                print(failure)
+                print(failure, response.response?.statusCode)
             }
         }
     }

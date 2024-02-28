@@ -11,7 +11,7 @@ import Alamofire
 enum CoingeckoAPI {
     case trending
     case search(query: String)
-    case market(vsCurrency: String, ids: String)
+    case market(vsCurrency: String, ids: String, sparkline: String)
     
     var baseURL: String { return "https://api.coingecko.com/api/v3/"}
     
@@ -27,7 +27,8 @@ enum CoingeckoAPI {
         switch self {
         case .trending: [:]
         case .search(let query): ["query": query]
-        case .market(let vsCurrency, let ids): ["vs_currency": vsCurrency, "ids": ids]
+        case .market(let vsCurrency, let ids, let sparkline):
+            ["vs_currency": vsCurrency, "ids": ids, "sparkline": sparkline]
         }
     }
 }

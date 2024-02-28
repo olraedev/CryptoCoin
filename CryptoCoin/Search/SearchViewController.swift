@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 class SearchViewController: BaseViewController {
     
@@ -59,7 +60,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let data = viewModel.outputSearchList.value[indexPath.row]
         let searchText = viewModel.inputSearchText.value
         
-        cell.configureCell(data, searchText: searchText)
+        cell.configureCell(data, searchText: searchText, favoriteList: viewModel.outputFavoriteListIDs.value)
+        cell.favoriteButton.tag = indexPath.row
+        cell.favoriteButton.addTarget(self, action: #selector(favoriteButtonClicked), for: .touchUpInside)
         
         return cell
     }
@@ -77,5 +80,20 @@ extension SearchViewController {
                 self.searchView.searchController.searchBar.text = ""
             }
         }
+        
+        viewModel.outputFavoriteListIDs.bind { _ in
+            self.searchView.tableView.reloadData()
+        }
+        
+        viewModel.outputFavoriteState.bind { state in
+            switch state {
+            case .append, .remove: self.view.makeToast(state.rawValue)
+            case .full: self.showAlert(title: "즐겨찾기 실패", message: state.rawValue)
+            }
+        }
+    }
+    
+    @objc func favoriteButtonClicked(_ sender: UIButton) {
+        viewModel.inputFavoriteButtonTrigger.value = viewModel.outputSearchList.value[sender.tag].id
     }
 }

@@ -56,13 +56,18 @@ extension SearchTableViewCell {
         contentView.addSubview(favoriteButton)
     }
     
-    func configureCell(_ data: CoingeckoCoin, searchText: String?) {
+    func configureCell(_ data: CoingeckoCoinsData, searchText: String?, favoriteList: [String]) {
         let url = URL(string: data.large)
         
         thumbImageView.kf.setImage(with: url)
         nameLabel.text = data.name
         symbolLabel.text = data.symbol
-        favoriteButton.setImage(.btnStar, for: .normal)
+        // 즐겨찾기 리스트에 있는 경우
+        if favoriteList.contains(data.id) {
+            favoriteButton.setImage(.btnStarFill, for: .normal)
+        } else {
+            favoriteButton.setImage(.btnStar, for: .normal)
+        }
         
         nameLabel.changeSearchText(searchText)
         symbolLabel.changeSearchText(searchText)

@@ -13,11 +13,16 @@ class SearchViewModel {
     
     var inputSearchText: Observable<String?> = Observable(nil)
     var inputCancelButtonTrigger: Observable<Void?> = Observable(nil)
+    var inputFavoriteButtonTrigger: Observable<String?> = Observable(nil)
     
-    var outputSearchList: Observable<[CoingeckoCoin]> = Observable([])
+    var outputSearchList: Observable<[CoingeckoCoinsData]> = Observable([])
     var outputSearchState = Observable(true)
+    var outputFavoriteListIDs: Observable<[String]> = Observable([])
+    var outputFavoriteState: Observable<FavoriteButtonClickedState> = Observable(.append)
     
     init() {
+        guard let repository else { return }
+        
         inputSearchText.bind { text in
             self.validation(text)
         }
@@ -25,8 +30,41 @@ class SearchViewModel {
         inputCancelButtonTrigger.bind { _ in
             self.outputSearchList.value.removeAll()
         }
+        
+        inputFavoriteButtonTrigger.bind { id in
+            self.favoriteButtonClicked(id)
+        }
+        
+        repository.readAll(RmFavoriteCoinIDList.self).forEach { list in
+            self.outputFavoriteListIDs.value.append(list.id)
+        }
     }
     
+    // 즐겨찾기 버튼 클릭 시
+    private func favoriteButtonClicked(_ id: String?) {
+        guard let id else { return }
+        guard let repository else { return }
+        
+        // 이미 즐겨찾기 한 코인이면 즐겨찾기 목록에서 삭제하기
+        if let value = repository.readForPrimaryKey(RmFavoriteCoinIDList.self, primaryKey: id) {
+            outputFavoriteListIDs.value.remove(at: outputFavoriteListIDs.value.firstIndex(of: id)!)
+            outputFavoriteState.value = .remove
+            repository.delete(objects: value)
+        } else {
+            // 즐겨찾기는 10개까지 ㅎㅎ
+            let favoriteList = repository.readAll(RmFavoriteCoinIDList.self)
+            if favoriteList.count == 10 {
+                outputFavoriteState.value = .full
+                return
+            }
+            // 즐겨찾기 목록에 추가하기
+            repository.create(objects: RmFavoriteCoinIDList(id: id, marketData: nil))
+            outputFavoriteListIDs.value.append(id)
+            outputFavoriteState.value = .append
+        }
+    }
+    
+    // 입력된 text 확인
     private func validation(_ text: String?) {
         guard let text = text else { return }
         
@@ -54,7 +92,7 @@ class SearchViewModel {
         guard let repository else { return }
         
         // 검색어가 있을 경우
-        if let value = repository.readForPrimaryKey(SearchList.self, primaryKey: text) {
+        if let value = repository.readForPrimaryKey(RmSearchList.self, primaryKey: text) {
             let timeInterval = Int(Date().timeIntervalSince(value.date))
             let minute = timeInterval / 60
 
@@ -65,7 +103,7 @@ class SearchViewModel {
                 self.outputSearchList.value.removeAll()
                 // 현재 저장되어 있는 coins 빼와서 outputSearchList에 넣어주기
                 value.coins.forEach { coin in
-                    let coin = CoingeckoCoin(id: coin.id, name: coin.name, symbol: coin.symbol, thumb: coin.thumb, large: coin.large)
+                    let coin = CoingeckoCoinsData(id: coin.id, name: coin.name, symbol: coin.symbol, large: coin.large)
                     self.outputSearchList.value.append(coin)
                 }
                 return
@@ -76,14 +114,15 @@ class SearchViewModel {
         }
         
         // 15분이 지났거나, 검색어가 없는 경우
-        fetch(query: text)
+        requestToCoingecko(query: text)
     }
     
-    private func fetch(query: String) {
+    // request to Coingecko
+    private func requestToCoingecko(query: String) {
         let group = DispatchGroup()
         
         group.enter()
-        CoingeckoAPIManager.shared.fetch(Search.self, api: .search(query: query)) { searchList in
+        CoingeckoAPIManager.shared.fetch(CoingeckoSearchData.self, api: .search(query: query)) { searchList in
             self.outputSearchList.value = searchList.coins
             group.leave()
         }
@@ -92,12 +131,12 @@ class SearchViewModel {
             // create 해주기
             guard let repository = self.repository else { return }
             
-            var coins: [SearchCoin] = []
+            var coins: [RmCoinData] = []
             self.outputSearchList.value.forEach { coin in
-                coins.append(SearchCoin(id: coin.id, name: coin.name, symbol: coin.symbol, thumb: coin.thumb, large: coin.large))
+                coins.append(RmCoinData(id: coin.id, name: coin.name, symbol: coin.symbol, large: coin.large))
             }
             
-            let searchList = SearchList(text: query, coins: coins)
+            let searchList = RmSearchList(text: query, coins: coins)
             repository.create(objects: searchList)
         }
     }

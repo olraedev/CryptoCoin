@@ -7,14 +7,13 @@
 
 import Foundation
 
-struct Search: Decodable {
-    let coins: [CoingeckoCoin]
+struct CoingeckoSearchData: Decodable {
+    let coins: [CoingeckoCoinsData]
 }
 
-struct CoingeckoCoin: Decodable {
+struct CoingeckoCoinsData: Decodable {
     let id: String
     let name: String
     let symbol: String
-    let thumb: String
     let large: String
 }
