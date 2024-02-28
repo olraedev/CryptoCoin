@@ -66,6 +66,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ChartViewController()
+        vc.viewModel.inputID.value = viewModel.outputSearchList.value[indexPath.row].id
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension SearchViewController {

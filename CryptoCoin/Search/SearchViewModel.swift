@@ -20,7 +20,7 @@ class SearchViewModel {
     var outputFavoriteListIDs: Observable<[String]> = Observable([])
     var outputFavoriteState: Observable<FavoriteButtonClickedState> = Observable(.append)
     
-    init() {        
+    init() {
         guard let repository else { return }
         
         inputSearchText.bind { text in
@@ -47,9 +47,10 @@ class SearchViewModel {
         
         // 이미 즐겨찾기 한 코인이면 즐겨찾기 목록에서 삭제하기
         if let value = repository.readForPrimaryKey(RmFavoriteCoinList.self, primaryKey: id) {
-            outputFavoriteListIDs.value.remove(at: outputFavoriteListIDs.value.firstIndex(of: id)!)
-            outputFavoriteState.value = .remove
             repository.delete(objects: value)
+            
+            outputFavoriteListIDs.value = repository.readOnlyIDs()
+            outputFavoriteState.value = .remove
         } else {
             // 즐겨찾기는 10개까지 ㅎㅎ
             let favoriteList = repository.readAll(RmFavoriteCoinList.self)
@@ -59,7 +60,8 @@ class SearchViewModel {
             }
             // 즐겨찾기 목록에 추가하기
             repository.create(objects: RmFavoriteCoinList(id: id, marketData: nil, updateMarketDate: nil))
-            outputFavoriteListIDs.value.append(id)
+            
+            outputFavoriteListIDs.value = repository.readOnlyIDs()
             outputFavoriteState.value = .append
         }
     }
@@ -138,6 +140,7 @@ class SearchViewModel {
             
             let searchList = RmSearchList(text: query, coins: coins)
             repository.create(objects: searchList)
+            self.outputFavoriteListIDs.value = repository.readOnlyIDs()
         }
     }
 }

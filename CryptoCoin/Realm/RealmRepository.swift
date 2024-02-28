@@ -41,6 +41,14 @@ class RealmRepository {
         return realm.objects(RmFavoriteCoinList.self).where { $0.marketData == nil }
     }
     
+    func readOnlyIDs() -> [String] {
+        var ids: [String] = []
+        readAll(RmFavoriteCoinList.self).forEach { list in
+            ids.append(list.id)
+        }
+        return ids
+    }
+    
     // Upadte
     func updateEmptyMarketDataList(_ value: RmFavoriteCoinList) {
         do {

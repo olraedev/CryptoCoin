@@ -17,7 +17,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let view = UILabel()
-        view.font = Design.Font.mid.light
+        view.font = Design.Font.small.bold
         view.textColor = Design.Color.customBlack.fill
         return view
     }()
@@ -31,7 +31,7 @@ class FavoriteCollectionViewCell: UICollectionViewCell {
     
     let priceLabel: UILabel = {
         let view = UILabel()
-        view.font = Design.Font.biggest.light
+        view.font = Design.Font.biggest.bold
         view.textColor = Design.Color.customBlack.fill
         return view
     }()
@@ -93,7 +93,6 @@ extension FavoriteCollectionViewCell {
             percentageLabel.textColor = Design.Color.customBlue.fill
             percentageLabel.backgroundColor = Design.Color.customSkyBlue.fill
         }
-        
     }
     
     func configureConstraints() {
@@ -118,7 +117,7 @@ extension FavoriteCollectionViewCell {
         }
         
         priceLabel.snp.makeConstraints { make in
-            make.bottom.equalTo(percentageLabel.snp.top)
+            make.bottom.equalTo(percentageLabel.snp.top).offset(-3)
             make.trailing.equalTo(contentView).offset(-16)
         }
         

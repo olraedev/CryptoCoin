@@ -31,6 +31,7 @@ enum Design {
         case mid
         case big
         case biggest
+        case highlight = 25
         
         var light: UIFont {
             return UIFont.systemFont(ofSize: self.rawValue)

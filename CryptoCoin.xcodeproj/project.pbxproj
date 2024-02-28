@@ -44,6 +44,13 @@
 		ECC91A822B8F304900F9D4AC /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A812B8F304900F9D4AC /* FavoriteView.swift */; };
 		ECC91A842B8F31CF00F9D4AC /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A832B8F31CF00F9D4AC /* FavoriteCollectionViewCell.swift */; };
 		ECC91A862B8F42B100F9D4AC /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A852B8F42B100F9D4AC /* FavoriteViewModel.swift */; };
+		ECC91A882B8F5FE000F9D4AC /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A872B8F5FE000F9D4AC /* ChartViewController.swift */; };
+		ECC91A8A2B8F60E000F9D4AC /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A892B8F60E000F9D4AC /* ChartView.swift */; };
+		ECC91A8C2B8F643400F9D4AC /* ChartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A8B2B8F643400F9D4AC /* ChartItem.swift */; };
+		ECC91A8F2B8F655800F9D4AC /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = ECC91A8E2B8F655800F9D4AC /* DGCharts */; };
+		ECC91A912B8F655800F9D4AC /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = ECC91A902B8F655800F9D4AC /* DGChartsDynamic */; };
+		ECC91A932B8F6CD400F9D4AC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A922B8F6CD400F9D4AC /* ChartViewModel.swift */; };
+		ECC91A952B8F7D7900F9D4AC /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A942B8F7D7900F9D4AC /* ChartCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +86,11 @@
 		ECC91A812B8F304900F9D4AC /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		ECC91A832B8F31CF00F9D4AC /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC91A852B8F42B100F9D4AC /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		ECC91A872B8F5FE000F9D4AC /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		ECC91A892B8F60E000F9D4AC /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		ECC91A8B2B8F643400F9D4AC /* ChartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartItem.swift; sourceTree = "<group>"; };
+		ECC91A922B8F6CD400F9D4AC /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		ECC91A942B8F7D7900F9D4AC /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,12 +98,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC91A8F2B8F655800F9D4AC /* DGCharts in Frameworks */,
 				EC96DB452B8E1F2200732CF5 /* RealmSwift in Frameworks */,
 				EC96DB402B8DEC7800732CF5 /* Kingfisher in Frameworks */,
 				EC96DB332B8DC8A400732CF5 /* Alamofire in Frameworks */,
 				EC96DB232B8DBD0100732CF5 /* SnapKit in Frameworks */,
 				EC96DB252B8DBD0100732CF5 /* SnapKit-Dynamic in Frameworks */,
 				ECC91A7E2B8F171900F9D4AC /* Toast in Frameworks */,
+				ECC91A912B8F655800F9D4AC /* DGChartsDynamic in Frameworks */,
 				EC96DB432B8E1F2200732CF5 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +190,11 @@
 		EC96DB0B2B8DB05000732CF5 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
+				ECC91A8B2B8F643400F9D4AC /* ChartItem.swift */,
+				ECC91A892B8F60E000F9D4AC /* ChartView.swift */,
+				ECC91A872B8F5FE000F9D4AC /* ChartViewController.swift */,
+				ECC91A922B8F6CD400F9D4AC /* ChartViewModel.swift */,
+				ECC91A942B8F7D7900F9D4AC /* ChartCollectionViewCell.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -257,6 +276,8 @@
 				EC96DB422B8E1F2200732CF5 /* Realm */,
 				EC96DB442B8E1F2200732CF5 /* RealmSwift */,
 				ECC91A7D2B8F171900F9D4AC /* Toast */,
+				ECC91A8E2B8F655800F9D4AC /* DGCharts */,
+				ECC91A902B8F655800F9D4AC /* DGChartsDynamic */,
 			);
 			productName = CryptoCoin;
 			productReference = EC96DAEF2B8DACA400732CF5 /* CryptoCoin.app */;
@@ -292,6 +313,7 @@
 				EC96DB3E2B8DEC7800732CF5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				EC96DB412B8E1F2200732CF5 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				ECC91A7C2B8F171900F9D4AC /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				ECC91A8D2B8F655800F9D4AC /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = EC96DAF02B8DACA400732CF5 /* Products */;
 			projectDirPath = "";
@@ -321,10 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC91A862B8F42B100F9D4AC /* FavoriteViewModel.swift in Sources */,
+				ECC91A882B8F5FE000F9D4AC /* ChartViewController.swift in Sources */,
 				ECC91A842B8F31CF00F9D4AC /* FavoriteCollectionViewCell.swift in Sources */,
 				EC96DB3C2B8DDA3B00732CF5 /* Observable.swift in Sources */,
 				ECC91A792B8F065500F9D4AC /* CoingeckoMarketData.swift in Sources */,
 				EC96DB0E2B8DB09700732CF5 /* TrendingViewController.swift in Sources */,
+				ECC91A8A2B8F60E000F9D4AC /* ChartView.swift in Sources */,
 				ECC91A822B8F304900F9D4AC /* FavoriteView.swift in Sources */,
 				EC96DAF32B8DACA400732CF5 /* AppDelegate.swift in Sources */,
 				EC96DB102B8DB0A600732CF5 /* SearchViewController.swift in Sources */,
@@ -335,7 +359,9 @@
 				EC96DB122B8DB0B000732CF5 /* FavoriteViewController.swift in Sources */,
 				EC96DB302B8DC68200732CF5 /* CoingeckoAPIManager.swift in Sources */,
 				EC96DB172B8DB6A900732CF5 /* BaseViewController.swift in Sources */,
+				ECC91A952B8F7D7900F9D4AC /* ChartCollectionViewCell.swift in Sources */,
 				EC96DB4A2B8E232600732CF5 /* RealmRepository.swift in Sources */,
+				ECC91A8C2B8F643400F9D4AC /* ChartItem.swift in Sources */,
 				EC96DB142B8DB0B800732CF5 /* SettingViewController.swift in Sources */,
 				EC96DB352B8DC92200732CF5 /* CoingeckoAPI.swift in Sources */,
 				EC96DB482B8E1FCE00732CF5 /* RealmModel.swift in Sources */,
@@ -343,6 +369,7 @@
 				EC96DB2D2B8DC15600732CF5 /* Protocols.swift in Sources */,
 				EC96DB192B8DB6E600732CF5 /* BaseView.swift in Sources */,
 				EC96DB292B8DBFDB00732CF5 /* SearchTableViewCell.swift in Sources */,
+				ECC91A932B8F6CD400F9D4AC /* ChartViewModel.swift in Sources */,
 				EC96DB1B2B8DB74600732CF5 /* RoundImageView.swift in Sources */,
 				EC96DB272B8DBF8E00732CF5 /* SearchView.swift in Sources */,
 				ECC91A7B2B8F0DDB00F9D4AC /* FormatManager.swift in Sources */,
@@ -611,6 +638,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		ECC91A8D2B8F655800F9D4AC /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -648,6 +683,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ECC91A7C2B8F171900F9D4AC /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		ECC91A8E2B8F655800F9D4AC /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECC91A8D2B8F655800F9D4AC /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		ECC91A902B8F655800F9D4AC /* DGChartsDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECC91A8D2B8F655800F9D4AC /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGChartsDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
