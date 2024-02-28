@@ -20,7 +20,7 @@ class SearchViewModel {
     var outputFavoriteListIDs: Observable<[String]> = Observable([])
     var outputFavoriteState: Observable<FavoriteButtonClickedState> = Observable(.append)
     
-    init() {
+    init() {        
         guard let repository else { return }
         
         inputSearchText.bind { text in
@@ -35,7 +35,7 @@ class SearchViewModel {
             self.favoriteButtonClicked(id)
         }
         
-        repository.readAll(RmFavoriteCoinIDList.self).forEach { list in
+        repository.readAll(RmFavoriteCoinList.self).forEach { list in
             self.outputFavoriteListIDs.value.append(list.id)
         }
     }
@@ -46,19 +46,19 @@ class SearchViewModel {
         guard let repository else { return }
         
         // 이미 즐겨찾기 한 코인이면 즐겨찾기 목록에서 삭제하기
-        if let value = repository.readForPrimaryKey(RmFavoriteCoinIDList.self, primaryKey: id) {
+        if let value = repository.readForPrimaryKey(RmFavoriteCoinList.self, primaryKey: id) {
             outputFavoriteListIDs.value.remove(at: outputFavoriteListIDs.value.firstIndex(of: id)!)
             outputFavoriteState.value = .remove
             repository.delete(objects: value)
         } else {
             // 즐겨찾기는 10개까지 ㅎㅎ
-            let favoriteList = repository.readAll(RmFavoriteCoinIDList.self)
+            let favoriteList = repository.readAll(RmFavoriteCoinList.self)
             if favoriteList.count == 10 {
                 outputFavoriteState.value = .full
                 return
             }
             // 즐겨찾기 목록에 추가하기
-            repository.create(objects: RmFavoriteCoinIDList(id: id, marketData: nil))
+            repository.create(objects: RmFavoriteCoinList(id: id, marketData: nil, updateMarketDate: nil))
             outputFavoriteListIDs.value.append(id)
             outputFavoriteState.value = .append
         }
@@ -84,14 +84,14 @@ class SearchViewModel {
         }
         
         outputSearchState.value = true
-        didSearched(text: noSpacingText)
+        didSearched(text: noSpacingText.lowercased())
     }
     
     // 15분 업데이트 간격 안에 똑같은 검색어로 입력했을 경우, 굳이 API request를 할 이유가 없음
     private func didSearched(text: String) {
         guard let repository else { return }
         
-        // 검색어가 있을 경우
+        // 검색어가 있을 경우 (소문자로만 저장)
         if let value = repository.readForPrimaryKey(RmSearchList.self, primaryKey: text) {
             let timeInterval = Int(Date().timeIntervalSince(value.date))
             let minute = timeInterval / 60

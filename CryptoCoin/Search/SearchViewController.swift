@@ -87,7 +87,7 @@ extension SearchViewController {
         
         viewModel.outputFavoriteState.bind { state in
             switch state {
-            case .append, .remove: self.view.makeToast(state.rawValue)
+            case .append, .remove: self.view.makeToast(state.rawValue, duration: 0.5)
             case .full: self.showAlert(title: "즐겨찾기 실패", message: state.rawValue)
             }
         }

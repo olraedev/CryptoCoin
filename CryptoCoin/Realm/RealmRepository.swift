@@ -37,6 +37,21 @@ class RealmRepository {
         return realm.object(ofType: T.self, forPrimaryKey: primaryKey)
     }
     
+    func readEmptyMarketDataList() -> Results<RmFavoriteCoinList> {
+        return realm.objects(RmFavoriteCoinList.self).where { $0.marketData == nil }
+    }
+    
+    // Upadte
+    func updateEmptyMarketDataList(_ value: RmFavoriteCoinList) {
+        do {
+            try realm.write {
+                realm.create(RmFavoriteCoinList.self, value: value, update: .modified)
+            }
+        } catch {
+            print("\(#function) ERROR: \(error)")
+        }
+    }
+    
     // Delete
     func delete<T: Object>(objects: T) {
         do {

@@ -37,14 +37,16 @@ class RmCoinData: EmbeddedObject {
     }
 }
 
-class RmFavoriteCoinIDList: Object {
+class RmFavoriteCoinList: Object {
     @Persisted(primaryKey: true) var id: String // 코인 ID
     @Persisted var marketData: RmCoinMarketData?
+    @Persisted var updateMarketDate: Date?
     
-    convenience init(id: String, marketData: RmCoinMarketData?) {
+    convenience init(id: String, marketData: RmCoinMarketData?, updateMarketDate: Date?) {
         self.init()
         self.id = id
         self.marketData = marketData
+        self.updateMarketDate = updateMarketDate
     }
 }
 
@@ -63,7 +65,7 @@ class RmCoinMarketData: EmbeddedObject {
     @Persisted var lastUpdate: Date // 코인 시장 업데이트 시각
     @Persisted var sparkline: List<Double?> // 일주일 간 코인 시세 정보
     
-    convenience init(name: String, symbol: String, image: String, currentPrice: Double, priceChangePercentage24h: Double, low24h: Double, high24h: Double, allTimeHigh: Double, allTimeHighDate: Date, allTimeLow: Double, allTimeLowDate: Date, lastUpdate: Date, sparkline: List<Double?>) {
+    convenience init(name: String, symbol: String, image: String, currentPrice: Double, priceChangePercentage24h: Double, low24h: Double, high24h: Double, allTimeHigh: Double, allTimeHighDate: Date, allTimeLow: Double, allTimeLowDate: Date, lastUpdate: Date, sparkline: [Double]) {
         self.init()
         self.name = name
         self.symbol = symbol
@@ -77,6 +79,6 @@ class RmCoinMarketData: EmbeddedObject {
         self.allTimeLow = allTimeLow
         self.allTimeLowDate = allTimeLowDate
         self.lastUpdate = lastUpdate
-        self.sparkline = sparkline
+        self.sparkline.append(objectsIn: sparkline)
     }
 }

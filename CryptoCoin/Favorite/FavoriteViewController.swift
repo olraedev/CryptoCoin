@@ -7,23 +7,48 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
+class FavoriteViewController: BaseViewController {
+    
+    let favoriteView = FavoriteView()
+    let viewModel = FavoriteViewModel()
+    
+    override func loadView() {
+        view = favoriteView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        viewModel.outputFavoriteList.bind { _ in
+            self.favoriteView.collectionView.reloadData()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.inputViewWillAppearTrigger.value = ()
     }
-    */
+    
+    override func configureView(navigationTitle: String) {
+        super.configureView(navigationTitle: "Favorite Coin")
+        
+        favoriteView.collectionView.delegate = self
+        favoriteView.collectionView.dataSource = self
+        favoriteView.collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: FavoriteCollectionViewCell.identifier)
+    }
+}
 
+extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.outputFavoriteList.value.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteCollectionViewCell.identifier, for: indexPath) as! FavoriteCollectionViewCell
+        
+        cell.configureCell(viewModel.outputFavoriteList.value[indexPath.item])
+        
+        return cell
+    }
 }
