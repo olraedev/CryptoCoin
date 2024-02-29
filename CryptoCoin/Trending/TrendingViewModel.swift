@@ -1,13 +1,13 @@
 //
-//  FavoriteViewModel.swift
+//  TrendingViewModel.swift
 //  CryptoCoin
 //
-//  Created by SangRae Kim on 2/28/24.
+//  Created by SangRae Kim on 2/29/24.
 //
 
 import Foundation
 
-class FavoriteViewModel {
+class TrendingViewModel {
     
     private let repository = RealmRepository()
     
