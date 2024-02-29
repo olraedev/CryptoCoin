@@ -22,6 +22,11 @@ class ChartViewController: UIViewController {
         
         configureView()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
 
 extension ChartViewController: UICollectionViewDelegate, UICollectionViewDataSource {
