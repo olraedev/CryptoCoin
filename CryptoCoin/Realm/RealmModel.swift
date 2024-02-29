@@ -63,7 +63,7 @@ class RmCoinMarketData: EmbeddedObject {
     @Persisted var allTimeLow: Double // 코인 사상 최저가
     @Persisted var allTimeLowDate: Date // 코인 사상 최저가 일자
     @Persisted var lastUpdate: Date // 코인 시장 업데이트 시각
-    @Persisted var sparkline: List<Double?> // 일주일 간 코인 시세 정보
+    @Persisted var sparkline: List<Double> // 일주일 간 코인 시세 정보
     
     convenience init(name: String, symbol: String, image: String, currentPrice: Double, priceChangePercentage24h: Double, low24h: Double, high24h: Double, allTimeHigh: Double, allTimeHighDate: Date, allTimeLow: Double, allTimeLowDate: Date, lastUpdate: Date, sparkline: [Double]) {
         self.init()

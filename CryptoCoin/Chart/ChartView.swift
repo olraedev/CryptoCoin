@@ -7,6 +7,7 @@
 
 import UIKit
 import DGCharts
+import RealmSwift
 
 class ChartView: BaseView {
     
@@ -41,7 +42,19 @@ class ChartView: BaseView {
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
     
-    let chartView = LineChartView()
+    lazy var chartView = {
+        let view = LineChartView()
+        view.chartDescription.enabled = false
+        view.pinchZoomEnabled = false
+        view.drawGridBackgroundEnabled = false
+        view.rightAxis.enabled = false
+        view.leftAxis.enabled = false
+        view.xAxis.enabled = false
+        view.doubleTapToZoomEnabled = false
+        view.legend.enabled = false
+        view.delegate = self
+        return view
+    }()
     
     let fullUpdateLabel: UILabel = {
         let view = UILabel()
@@ -69,14 +82,39 @@ class ChartView: BaseView {
         nameLabel.text = item.name
         priceLabel.text = FormatManager.shared.decimal(item.currentPrice)
         percentageLabel.text = FormatManager.shared.percentage(item.priceChangePercentage24h)
-        lastUpdateLabel.text = "\(item.lastUpdate)"
-        fullUpdateLabel.text = "\(item.lastUpdate)"
+        lastUpdateLabel.text = FormatManager.shared.dateIntervalSinceToday(date: item.lastUpdate)
+        fullUpdateLabel.text = FormatManager.shared.dateFormatting(item.lastUpdate, format: "MM/dd HH:mm:ss") + " 업데이트"
         
         if item.priceChangePercentage24h > 0 {
             percentageLabel.textColor = Design.Color.customRed.fill
         } else {
             percentageLabel.textColor = Design.Color.customBlue.fill
         }
+        
+        drawChart(item.sparkline)
+    }
+    
+    func drawChart(_ item: List<Double>) {
+        if item.count == 0 { return }
+
+        var entry: [ChartDataEntry] = []
+        
+        for idx in 0...item.count - 1 {
+            entry.append(ChartDataEntry(x: Double(idx), y: item[idx]))
+        }
+        
+        let dataSet = LineChartDataSet(entries: entry)
+        dataSet.drawCirclesEnabled = false
+        dataSet.highlightEnabled = false
+        dataSet.drawFilledEnabled = true
+        dataSet.mode = .cubicBezier
+        dataSet.setColor(Design.Color.customPurple.fill)
+        dataSet.fillColor = Design.Color.customPurple.fill
+        dataSet.fillAlpha = 0.3
+        
+        let data = LineChartData(dataSet: dataSet)
+        data.setDrawValues(false)
+        chartView.data = data
     }
     
     override func configureConstraints() {
@@ -88,7 +126,7 @@ class ChartView: BaseView {
         
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(coinImageView.snp.top)
-            make.leading.equalTo(coinImageView.snp.trailing).offset(16)
+            make.leading.equalTo(coinImageView.snp.trailing).offset(8)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
             make.height.equalTo(30)
         }
@@ -118,7 +156,7 @@ class ChartView: BaseView {
         }
         
         chartView.snp.makeConstraints { make in
-            make.top.equalTo(self.snp.centerY)
+            make.top.equalTo(collectionView.snp.bottom)
             make.directionalHorizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
             make.bottom.equalTo(fullUpdateLabel.snp.top)
         }
@@ -127,6 +165,12 @@ class ChartView: BaseView {
             make.bottom.trailing.equalTo(safeAreaLayoutGuide).inset(16)
             make.height.equalTo(22)
         }
+    }
+}
+
+extension ChartView: ChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        print(#function)
     }
 }
 

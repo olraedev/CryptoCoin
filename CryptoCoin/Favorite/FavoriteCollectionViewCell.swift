@@ -74,7 +74,7 @@ extension FavoriteCollectionViewCell {
         
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
-        contentView.backgroundColor = .secondarySystemGroupedBackground
+        contentView.backgroundColor = Design.Color.customWhite.fill
     }
     
     func configureCell(_ item: RmFavoriteCoinList) {
