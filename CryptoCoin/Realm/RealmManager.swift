@@ -42,4 +42,27 @@ class RealmManager {
             completionHandler()
         }
     }
+    
+    func favoriteButtonClicked(_ id: String?, completionHandler: @escaping (FavoriteButtonClickedState) -> Void) {
+        guard let id else { return }
+        guard let repository else { return }
+        
+        // 이미 즐겨찾기 한 코인이면 즐겨찾기 목록에서 삭제하기
+        if let value = repository.readForPrimaryKey(RmFavoriteCoinList.self, primaryKey: id) {
+            repository.delete(objects: value)
+            
+            completionHandler(.remove)
+        } else {
+            // 즐겨찾기는 10개까지 ㅎㅎ
+            let favoriteList = repository.readAll(RmFavoriteCoinList.self)
+            if favoriteList.count == 10 {
+                completionHandler(.full)
+                return
+            }
+            // 즐겨찾기 목록에 추가하기
+            repository.create(objects: RmFavoriteCoinList(id: id, marketData: nil, updateMarketDate: nil))
+            
+            completionHandler(.append)
+        }
+    }
 }

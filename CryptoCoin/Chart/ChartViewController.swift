@@ -21,6 +21,7 @@ class ChartViewController: UIViewController {
         super.viewDidLoad()
         
         configureView()
+        bindData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,7 +48,8 @@ extension ChartViewController {
     func configureView() {
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = false
-        bindData()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(leftBarButtonClicked))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(favoriteButtonClicked))
         
         chartView.collectionView.delegate = self
         chartView.collectionView.dataSource = self
@@ -59,5 +61,30 @@ extension ChartViewController {
             self.chartView.designView(marketData)
             self.chartView.collectionView.reloadData()
         }
+        
+        viewModel.outputFavoriteState.bind { state in
+            var image = UIImage.btnStar
+            if state {
+                image = UIImage.btnStarFill
+            }
+            guard let rightBarButton = self.navigationItem.rightBarButtonItem else { return }
+            
+            rightBarButton.image = image
+        }
+        
+        viewModel.outputFavoriteButtonClickedState.bind { state in
+            switch state {
+            case .append, .remove: self.view.makeToast(state.rawValue, duration: 0.5)
+            case .full: self.showAlert(title: "즐겨찾기 실패", message: state.rawValue)
+            }
+        }
+    }
+    
+    @objc func leftBarButtonClicked() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func favoriteButtonClicked() {
+        viewModel.inputFavoriteButtonTrigger.value = ()
     }
 }

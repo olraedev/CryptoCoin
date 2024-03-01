@@ -12,17 +12,46 @@ class ChartViewModel {
     private let repository = RealmRepository()
     
     var inputID: Observable<String?> = Observable(nil)
+    var inputFavoriteButtonTrigger: Observable<Void?> = Observable(nil)
     
     var outputCoinMarketData: Observable<RmCoinMarketData?> = Observable(nil)
+    var outputFavoriteState = Observable(false)
+    var outputFavoriteButtonClickedState: Observable<FavoriteButtonClickedState> = Observable(.append)
     
     init() {
         inputID.bind { id in
-            self.fetchData(id)
+            self.setFavoriteState()
+            self.fetchData()
+        }
+        
+        inputFavoriteButtonTrigger.bind { _ in
+            self.favoriteButtonClicked()
         }
     }
     
-    private func fetchData(_ id: String?) {
-        guard let id else { return }
+    // 즐겨찾기 버튼 클릭 시
+    private func favoriteButtonClicked() {
+        guard let id = inputID.value else { return }
+        
+        RealmManager.shared.favoriteButtonClicked(id) { state in
+            self.outputFavoriteButtonClickedState.value = state
+            self.setFavoriteState()
+        }
+    }
+    
+    private func setFavoriteState() {
+        guard let id = inputID.value else { return }
+        guard let repository else { return }
+        
+        if let _ = repository.readForPrimaryKey(RmFavoriteCoinList.self, primaryKey: id) {
+            outputFavoriteState.value = true
+        } else {
+            outputFavoriteState.value = false
+        }
+    }
+    
+    private func fetchData() {
+        guard let id = inputID.value else { return }
         guard let repository else { return }
         
         // 즐겨 찾기에 있냐 없냐

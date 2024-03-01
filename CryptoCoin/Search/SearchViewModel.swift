@@ -42,27 +42,14 @@ class SearchViewModel {
     
     // 즐겨찾기 버튼 클릭 시
     private func favoriteButtonClicked(_ id: String?) {
-        guard let id else { return }
         guard let repository else { return }
+        guard let id else { return }
         
-        // 이미 즐겨찾기 한 코인이면 즐겨찾기 목록에서 삭제하기
-        if let value = repository.readForPrimaryKey(RmFavoriteCoinList.self, primaryKey: id) {
-            repository.delete(objects: value)
-            
-            outputFavoriteListIDs.value = repository.readOnlyIDs()
-            outputFavoriteState.value = .remove
-        } else {
-            // 즐겨찾기는 10개까지 ㅎㅎ
-            let favoriteList = repository.readAll(RmFavoriteCoinList.self)
-            if favoriteList.count == 10 {
-                outputFavoriteState.value = .full
-                return
+        RealmManager.shared.favoriteButtonClicked(id) { state in
+            if state != .full {
+                self.outputFavoriteListIDs.value = repository.readOnlyIDs()
             }
-            // 즐겨찾기 목록에 추가하기
-            repository.create(objects: RmFavoriteCoinList(id: id, marketData: nil, updateMarketDate: nil))
-            
-            outputFavoriteListIDs.value = repository.readOnlyIDs()
-            outputFavoriteState.value = .append
+            self.outputFavoriteState.value = state
         }
     }
     
