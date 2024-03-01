@@ -53,10 +53,10 @@
 		ECC91A952B8F7D7900F9D4AC /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A942B8F7D7900F9D4AC /* ChartCollectionViewCell.swift */; };
 		ECC91AC12B9079D100F9D4AC /* TrendingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AC02B9079D100F9D4AC /* TrendingSection.swift */; };
 		ECC91AC32B907A5200F9D4AC /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AC22B907A5200F9D4AC /* TrendingView.swift */; };
-		ECC91AC52B90876F00F9D4AC /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AC42B90876F00F9D4AC /* FavoriteTableViewCell.swift */; };
-		ECC91AC72B908AA200F9D4AC /* TrendingFavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AC62B908AA200F9D4AC /* TrendingFavoriteCollectionViewCell.swift */; };
-		ECC91AC92B908E3100F9D4AC /* TrendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AC82B908E3100F9D4AC /* TrendingViewModel.swift */; };
 		ECC91ACB2B90931E00F9D4AC /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91ACA2B90931E00F9D4AC /* RealmManager.swift */; };
+		ECC91ACD2B91BB9000F9D4AC /* FavoriteSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91ACC2B91BB9000F9D4AC /* FavoriteSectionCollectionViewCell.swift */; };
+		ECC91ACF2B91BE4400F9D4AC /* RankCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91ACE2B91BE4400F9D4AC /* RankCollectionViewCell.swift */; };
+		ECC91AD12B91BF7200F9D4AC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD02B91BF7200F9D4AC /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,10 +99,10 @@
 		ECC91A942B8F7D7900F9D4AC /* ChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC91AC02B9079D100F9D4AC /* TrendingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingSection.swift; sourceTree = "<group>"; };
 		ECC91AC22B907A5200F9D4AC /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
-		ECC91AC42B90876F00F9D4AC /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
-		ECC91AC62B908AA200F9D4AC /* TrendingFavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingFavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
-		ECC91AC82B908E3100F9D4AC /* TrendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModel.swift; sourceTree = "<group>"; };
 		ECC91ACA2B90931E00F9D4AC /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		ECC91ACC2B91BB9000F9D4AC /* FavoriteSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECC91ACE2B91BE4400F9D4AC /* RankCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECC91AD02B91BF7200F9D4AC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,12 +171,12 @@
 		EC96DB082B8DB01700732CF5 /* Trending */ = {
 			isa = PBXGroup;
 			children = (
+				ECC91AD02B91BF7200F9D4AC /* HeaderView.swift */,
 				ECC91AC02B9079D100F9D4AC /* TrendingSection.swift */,
 				ECC91AC22B907A5200F9D4AC /* TrendingView.swift */,
 				EC96DB0D2B8DB09700732CF5 /* TrendingViewController.swift */,
-				ECC91AC82B908E3100F9D4AC /* TrendingViewModel.swift */,
-				ECC91AC42B90876F00F9D4AC /* FavoriteTableViewCell.swift */,
-				ECC91AC62B908AA200F9D4AC /* TrendingFavoriteCollectionViewCell.swift */,
+				ECC91ACC2B91BB9000F9D4AC /* FavoriteSectionCollectionViewCell.swift */,
+				ECC91ACE2B91BE4400F9D4AC /* RankCollectionViewCell.swift */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -364,12 +364,11 @@
 				ECC91A882B8F5FE000F9D4AC /* ChartViewController.swift in Sources */,
 				ECC91A842B8F31CF00F9D4AC /* FavoriteCollectionViewCell.swift in Sources */,
 				EC96DB3C2B8DDA3B00732CF5 /* Observable.swift in Sources */,
-				ECC91AC52B90876F00F9D4AC /* FavoriteTableViewCell.swift in Sources */,
+				ECC91ACD2B91BB9000F9D4AC /* FavoriteSectionCollectionViewCell.swift in Sources */,
 				ECC91A792B8F065500F9D4AC /* CoingeckoMarketData.swift in Sources */,
 				EC96DB0E2B8DB09700732CF5 /* TrendingViewController.swift in Sources */,
 				ECC91A8A2B8F60E000F9D4AC /* ChartView.swift in Sources */,
 				ECC91A822B8F304900F9D4AC /* FavoriteView.swift in Sources */,
-				ECC91AC72B908AA200F9D4AC /* TrendingFavoriteCollectionViewCell.swift in Sources */,
 				ECC91AC12B9079D100F9D4AC /* TrendingSection.swift in Sources */,
 				ECC91ACB2B90931E00F9D4AC /* RealmManager.swift in Sources */,
 				EC96DAF32B8DACA400732CF5 /* AppDelegate.swift in Sources */,
@@ -386,9 +385,9 @@
 				EC96DB4A2B8E232600732CF5 /* RealmRepository.swift in Sources */,
 				ECC91A8C2B8F643400F9D4AC /* ChartItem.swift in Sources */,
 				EC96DB142B8DB0B800732CF5 /* SettingViewController.swift in Sources */,
+				ECC91AD12B91BF7200F9D4AC /* HeaderView.swift in Sources */,
 				EC96DB352B8DC92200732CF5 /* CoingeckoAPI.swift in Sources */,
 				EC96DB482B8E1FCE00732CF5 /* RealmModel.swift in Sources */,
-				ECC91AC92B908E3100F9D4AC /* TrendingViewModel.swift in Sources */,
 				EC96DB2B2B8DC14D00732CF5 /* Extensions.swift in Sources */,
 				EC96DB2D2B8DC15600732CF5 /* Protocols.swift in Sources */,
 				EC96DB192B8DB6E600732CF5 /* BaseView.swift in Sources */,
@@ -398,6 +397,7 @@
 				EC96DB272B8DBF8E00732CF5 /* SearchView.swift in Sources */,
 				ECC91A7B2B8F0DDB00F9D4AC /* FormatManager.swift in Sources */,
 				ECC91A802B8F18B100F9D4AC /* FavoriteState.swift in Sources */,
+				ECC91ACF2B91BE4400F9D4AC /* RankCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
