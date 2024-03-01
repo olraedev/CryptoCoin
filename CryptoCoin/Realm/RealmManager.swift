@@ -16,15 +16,17 @@ class RealmManager {
     func requestToCoingecko(completionHandler: @escaping () -> Void) {
         guard let repository else { return }
         
-        // 마켓 정보 없으면 찾기
+        // 즐겨찾기 목록에서 마켓 정보가 없는 id들 가져오기
         var ids: [String] = []
         repository.readEmptyMarketDataList().forEach { list in ids.append(list.id) }
         
+        // 찾을 id가 없는 경우 = 모든 즐겨찾기 항목들이 marketdata를 가지고있음
         if ids.isEmpty {
             completionHandler()
             return
         }
         
+        // 마켓 정보가 없는 id 가져오기!
         let group = DispatchGroup()
         
         group.enter()

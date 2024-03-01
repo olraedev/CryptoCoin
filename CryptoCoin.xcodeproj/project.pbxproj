@@ -57,6 +57,8 @@
 		ECC91ACD2B91BB9000F9D4AC /* FavoriteSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91ACC2B91BB9000F9D4AC /* FavoriteSectionCollectionViewCell.swift */; };
 		ECC91ACF2B91BE4400F9D4AC /* RankCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91ACE2B91BE4400F9D4AC /* RankCollectionViewCell.swift */; };
 		ECC91AD12B91BF7200F9D4AC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD02B91BF7200F9D4AC /* HeaderView.swift */; };
+		ECC91AD32B91CA9300F9D4AC /* TrendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD22B91CA9300F9D4AC /* TrendingViewModel.swift */; };
+		ECC91AD52B91D07100F9D4AC /* CoingeckoTrendingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD42B91D07100F9D4AC /* CoingeckoTrendingData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +105,8 @@
 		ECC91ACC2B91BB9000F9D4AC /* FavoriteSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC91ACE2B91BE4400F9D4AC /* RankCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC91AD02B91BF7200F9D4AC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		ECC91AD22B91CA9300F9D4AC /* TrendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModel.swift; sourceTree = "<group>"; };
+		ECC91AD42B91D07100F9D4AC /* CoingeckoTrendingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoTrendingData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 				ECC91AC02B9079D100F9D4AC /* TrendingSection.swift */,
 				ECC91AC22B907A5200F9D4AC /* TrendingView.swift */,
 				EC96DB0D2B8DB09700732CF5 /* TrendingViewController.swift */,
+				ECC91AD22B91CA9300F9D4AC /* TrendingViewModel.swift */,
 				ECC91ACC2B91BB9000F9D4AC /* FavoriteSectionCollectionViewCell.swift */,
 				ECC91ACE2B91BE4400F9D4AC /* RankCollectionViewCell.swift */,
 			);
@@ -244,6 +249,7 @@
 		EC96DB2E2B8DC63700732CF5 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				ECC91AD42B91D07100F9D4AC /* CoingeckoTrendingData.swift */,
 				EC96DB372B8DD83900732CF5 /* CoingeckoSearchData.swift */,
 				ECC91A782B8F065500F9D4AC /* CoingeckoMarketData.swift */,
 				EC96DB342B8DC92200732CF5 /* CoingeckoAPI.swift */,
@@ -379,6 +385,7 @@
 				EC96DB3A2B8DDA1E00732CF5 /* SearchViewModel.swift in Sources */,
 				EC96DB122B8DB0B000732CF5 /* FavoriteViewController.swift in Sources */,
 				EC96DB302B8DC68200732CF5 /* CoingeckoAPIManager.swift in Sources */,
+				ECC91AD32B91CA9300F9D4AC /* TrendingViewModel.swift in Sources */,
 				ECC91AC32B907A5200F9D4AC /* TrendingView.swift in Sources */,
 				EC96DB172B8DB6A900732CF5 /* BaseViewController.swift in Sources */,
 				ECC91A952B8F7D7900F9D4AC /* ChartCollectionViewCell.swift in Sources */,
@@ -393,6 +400,7 @@
 				EC96DB192B8DB6E600732CF5 /* BaseView.swift in Sources */,
 				EC96DB292B8DBFDB00732CF5 /* SearchTableViewCell.swift in Sources */,
 				ECC91A932B8F6CD400F9D4AC /* ChartViewModel.swift in Sources */,
+				ECC91AD52B91D07100F9D4AC /* CoingeckoTrendingData.swift in Sources */,
 				EC96DB1B2B8DB74600732CF5 /* RoundImageView.swift in Sources */,
 				EC96DB272B8DBF8E00732CF5 /* SearchView.swift in Sources */,
 				ECC91A7B2B8F0DDB00F9D4AC /* FormatManager.swift in Sources */,

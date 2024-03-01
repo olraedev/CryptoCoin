@@ -11,7 +11,6 @@ class HeaderView: UICollectionReusableView {
     
     let titleLabel = {
         let view = UILabel()
-        view.text = "dsfasdfa"
         view.textColor = Design.Color.customBlack.fill
         view.font = Design.Font.biggest.bold
         return view
