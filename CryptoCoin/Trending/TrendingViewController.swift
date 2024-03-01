@@ -40,6 +40,12 @@ class TrendingViewController: BaseViewController {
 }
 
 extension TrendingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderView.identifier, for: indexPath) as! HeaderView
+        header.titleLabel.text = TrendingSection.allCases[indexPath.section].headerTitle
+        return header
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return TrendingSection.allCases.count
     }
@@ -47,10 +53,8 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch TrendingSection(rawValue: section) {
         case .favorite: return viewModel.outputFavoriteList.value.count
-        case .top15Coin:
-            return viewModel.outputCoinRankList.value.count
-        case .top7NFT:
-            return viewModel.outputNftRankList.value.count
+        case .top15Coin: return viewModel.outputCoinRankList.value.count
+        case .top7NFT: return viewModel.outputNftRankList.value.count
         case .none: return 0
         }
     }
@@ -76,10 +80,16 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderView.identifier, for: indexPath) as! HeaderView
-        header.titleLabel.text = TrendingSection.allCases[indexPath.section].headerTitle
-        return header
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ChartViewController()
+        
+        switch TrendingSection(rawValue: indexPath.section) {
+        case .favorite: vc.viewModel.inputID.value = viewModel.outputFavoriteList.value[indexPath.item].id
+        case .top15Coin: vc.viewModel.inputID.value = viewModel.outputCoinRankList.value[indexPath.item].item.id
+        default: break
+        }
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
