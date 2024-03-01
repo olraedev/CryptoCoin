@@ -40,7 +40,7 @@
 		ECC91A792B8F065500F9D4AC /* CoingeckoMarketData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A782B8F065500F9D4AC /* CoingeckoMarketData.swift */; };
 		ECC91A7B2B8F0DDB00F9D4AC /* FormatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A7A2B8F0DDB00F9D4AC /* FormatManager.swift */; };
 		ECC91A7E2B8F171900F9D4AC /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = ECC91A7D2B8F171900F9D4AC /* Toast */; };
-		ECC91A802B8F18B100F9D4AC /* FavoriteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A7F2B8F18B100F9D4AC /* FavoriteState.swift */; };
+		ECC91A802B8F18B100F9D4AC /* FavoriteButtonClickedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A7F2B8F18B100F9D4AC /* FavoriteButtonClickedState.swift */; };
 		ECC91A822B8F304900F9D4AC /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A812B8F304900F9D4AC /* FavoriteView.swift */; };
 		ECC91A842B8F31CF00F9D4AC /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A832B8F31CF00F9D4AC /* FavoriteCollectionViewCell.swift */; };
 		ECC91A862B8F42B100F9D4AC /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A852B8F42B100F9D4AC /* FavoriteViewModel.swift */; };
@@ -59,6 +59,7 @@
 		ECC91AD12B91BF7200F9D4AC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD02B91BF7200F9D4AC /* HeaderView.swift */; };
 		ECC91AD32B91CA9300F9D4AC /* TrendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD22B91CA9300F9D4AC /* TrendingViewModel.swift */; };
 		ECC91AD52B91D07100F9D4AC /* CoingeckoTrendingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD42B91D07100F9D4AC /* CoingeckoTrendingData.swift */; };
+		ECC91AD72B92025500F9D4AC /* SearchValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD62B92025500F9D4AC /* SearchValidationState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,7 +91,7 @@
 		EC96DB492B8E232600732CF5 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		ECC91A782B8F065500F9D4AC /* CoingeckoMarketData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoMarketData.swift; sourceTree = "<group>"; };
 		ECC91A7A2B8F0DDB00F9D4AC /* FormatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatManager.swift; sourceTree = "<group>"; };
-		ECC91A7F2B8F18B100F9D4AC /* FavoriteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteState.swift; sourceTree = "<group>"; };
+		ECC91A7F2B8F18B100F9D4AC /* FavoriteButtonClickedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButtonClickedState.swift; sourceTree = "<group>"; };
 		ECC91A812B8F304900F9D4AC /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		ECC91A832B8F31CF00F9D4AC /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC91A852B8F42B100F9D4AC /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
@@ -107,6 +108,7 @@
 		ECC91AD02B91BF7200F9D4AC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		ECC91AD22B91CA9300F9D4AC /* TrendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModel.swift; sourceTree = "<group>"; };
 		ECC91AD42B91D07100F9D4AC /* CoingeckoTrendingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoTrendingData.swift; sourceTree = "<group>"; };
+		ECC91AD62B92025500F9D4AC /* SearchValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchValidationState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +191,8 @@
 		EC96DB092B8DB02C00732CF5 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				ECC91A7F2B8F18B100F9D4AC /* FavoriteState.swift */,
+				ECC91A7F2B8F18B100F9D4AC /* FavoriteButtonClickedState.swift */,
+				ECC91AD62B92025500F9D4AC /* SearchValidationState.swift */,
 				EC96DB262B8DBF8E00732CF5 /* SearchView.swift */,
 				EC96DB0F2B8DB0A600732CF5 /* SearchViewController.swift */,
 				EC96DB392B8DDA1E00732CF5 /* SearchViewModel.swift */,
@@ -396,6 +399,7 @@
 				EC96DB352B8DC92200732CF5 /* CoingeckoAPI.swift in Sources */,
 				EC96DB482B8E1FCE00732CF5 /* RealmModel.swift in Sources */,
 				EC96DB2B2B8DC14D00732CF5 /* Extensions.swift in Sources */,
+				ECC91AD72B92025500F9D4AC /* SearchValidationState.swift in Sources */,
 				EC96DB2D2B8DC15600732CF5 /* Protocols.swift in Sources */,
 				EC96DB192B8DB6E600732CF5 /* BaseView.swift in Sources */,
 				EC96DB292B8DBFDB00732CF5 /* SearchTableViewCell.swift in Sources */,
@@ -404,7 +408,7 @@
 				EC96DB1B2B8DB74600732CF5 /* RoundImageView.swift in Sources */,
 				EC96DB272B8DBF8E00732CF5 /* SearchView.swift in Sources */,
 				ECC91A7B2B8F0DDB00F9D4AC /* FormatManager.swift in Sources */,
-				ECC91A802B8F18B100F9D4AC /* FavoriteState.swift in Sources */,
+				ECC91A802B8F18B100F9D4AC /* FavoriteButtonClickedState.swift in Sources */,
 				ECC91ACF2B91BE4400F9D4AC /* RankCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

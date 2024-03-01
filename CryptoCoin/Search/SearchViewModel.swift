@@ -16,7 +16,7 @@ class SearchViewModel {
     var inputFavoriteButtonTrigger: Observable<String?> = Observable(nil)
     
     var outputSearchList: Observable<[CoingeckoCoinsData]> = Observable([])
-    var outputSearchState = Observable(true)
+    var outputSearchState: Observable<SearchValidationState> = Observable(.success)
     var outputFavoriteListIDs: Observable<[String]> = Observable([])
     var outputFavoriteState: Observable<FavoriteButtonClickedState> = Observable(.append)
     
@@ -58,21 +58,29 @@ class SearchViewModel {
         guard let text = text else { return }
         
         // 빈 값
-        if text.isEmpty { outputSearchList.value = [] }
+        if text.isEmpty{
+            outputSearchList.value = []
+            outputSearchState.value = .empty
+        }
         
-        let pattern = "[!@#$%^&*()-=+]"
-        let regex = try? NSRegularExpression(pattern: pattern)
+        // 길이 초과
+        if text.count > 10 {
+            outputSearchState.value = .length
+        }
         
         // 띄어쓰기 하나로 합쳐주기
         let noSpacingText = text.replacingOccurrences(of: " ", with: "")
         
         // 특수문자가 들어 있는 경우
+        let pattern = "[!@#$%^&*()-=+]"
+        let regex = try? NSRegularExpression(pattern: pattern)
+        
         if let _ = regex?.firstMatch(in: noSpacingText, options: [], range: NSRange(location: 0, length: noSpacingText.count)) {
-            outputSearchState.value = false
+            outputSearchState.value = .includeSpecialCharacters
             return
         }
         
-        outputSearchState.value = true
+        outputSearchState.value = .success
         didSearched(text: noSpacingText.lowercased())
     }
     
