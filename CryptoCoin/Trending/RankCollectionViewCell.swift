@@ -76,7 +76,7 @@ extension RankCollectionViewCell {
         thumbImageView.kf.setImage(with: url)
         nameLabel.text = coin.item.name
         symbolLabel.text = coin.item.symbol
-        priceLabel.text = coin.item.data.price
+        priceLabel.text = coin.item.data.price.removeHTMLTag
         percentageLabel.text = FormatManager.shared.percentage(coin.item.data.priceChangePercentage24h.krw)
         
         if coin.item.data.priceChangePercentage24h.krw > 0 {
@@ -94,7 +94,7 @@ extension RankCollectionViewCell {
         thumbImageView.kf.setImage(with: url)
         nameLabel.text = item.name
         symbolLabel.text = item.symbol
-        priceLabel.text = item.data.floorPrice
+        priceLabel.text = item.data.floorPrice.removeHTMLTag
         percentageLabel.text = FormatManager.shared.percentage(doublePercentage)
         
         if doublePercentage > 0 {

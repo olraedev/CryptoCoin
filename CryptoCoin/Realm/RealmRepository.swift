@@ -14,7 +14,6 @@ class RealmRepository {
     
     init?() {
         self.realm = try! Realm()
-        print(realm.configuration.fileURL!)
     }
     
     // Create
