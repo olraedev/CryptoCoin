@@ -15,6 +15,18 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if NetworkCheck.shared.isConnected {
+            print("인터넷 연결이 원활합니다")
+        } else {
+            print("인터넷 연결이 없습니다")
+            showAlert(title: "네트워크에 접속할 수 없습니다", message: "연결 상태를 확인해주세요") {
+                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    exit(0)
+                }
+            }
+        }
+        
         configureView(navigationTitle: "")
     }
     

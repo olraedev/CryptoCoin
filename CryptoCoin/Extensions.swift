@@ -42,6 +42,17 @@ extension UIViewController {
         
         present(alert, animated: true)
     }
+    
+    func showAlert(title: String, message: String, completionHandler: @escaping () -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "종료", style: .cancel) { _ in
+            completionHandler()
+        }
+        
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+    }
 }
 
 extension String {

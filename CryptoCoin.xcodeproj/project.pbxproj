@@ -61,6 +61,7 @@
 		ECC91AD52B91D07100F9D4AC /* CoingeckoTrendingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD42B91D07100F9D4AC /* CoingeckoTrendingData.swift */; };
 		ECC91AD72B92025500F9D4AC /* SearchValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD62B92025500F9D4AC /* SearchValidationState.swift */; };
 		ECC91ADA2B92066900F9D4AC /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = ECC91AD92B92066900F9D4AC /* SkeletonView */; };
+		ECC91AE02B92FC3700F9D4AC /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91ADF2B92FC3600F9D4AC /* NetworkCheck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 		ECC91AD22B91CA9300F9D4AC /* TrendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModel.swift; sourceTree = "<group>"; };
 		ECC91AD42B91D07100F9D4AC /* CoingeckoTrendingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoTrendingData.swift; sourceTree = "<group>"; };
 		ECC91AD62B92025500F9D4AC /* SearchValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchValidationState.swift; sourceTree = "<group>"; };
+		ECC91ADF2B92FC3600F9D4AC /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				EC96DB2A2B8DC14D00732CF5 /* Extensions.swift */,
 				EC96DB3B2B8DDA3A00732CF5 /* Observable.swift */,
 				ECC91A7A2B8F0DDB00F9D4AC /* FormatManager.swift */,
+				ECC91ADF2B92FC3600F9D4AC /* NetworkCheck.swift */,
 				EC96DB3D2B8DE7C600732CF5 /* Design */,
 				EC96DB2E2B8DC63700732CF5 /* API */,
 				EC96DB462B8E1FBC00732CF5 /* Realm */,
@@ -410,6 +413,7 @@
 				ECC91A932B8F6CD400F9D4AC /* ChartViewModel.swift in Sources */,
 				ECC91AD52B91D07100F9D4AC /* CoingeckoTrendingData.swift in Sources */,
 				EC96DB1B2B8DB74600732CF5 /* RoundImageView.swift in Sources */,
+				ECC91AE02B92FC3700F9D4AC /* NetworkCheck.swift in Sources */,
 				EC96DB272B8DBF8E00732CF5 /* SearchView.swift in Sources */,
 				ECC91A7B2B8F0DDB00F9D4AC /* FormatManager.swift in Sources */,
 				ECC91A802B8F18B100F9D4AC /* FavoriteButtonClickedState.swift in Sources */,
