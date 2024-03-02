@@ -19,9 +19,7 @@ class FavoriteViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.outputFavoriteList.bind { _ in
-            self.favoriteView.collectionView.reloadData()
-        }
+        bindData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +34,8 @@ class FavoriteViewController: BaseViewController {
         favoriteView.collectionView.delegate = self
         favoriteView.collectionView.dataSource = self
         favoriteView.collectionView.register(FavoriteCollectionViewCell.self, forCellWithReuseIdentifier: FavoriteCollectionViewCell.identifier)
+        
+        favoriteView.collectionView.refreshControl?.addTarget(self, action: #selector(refreshControlled), for: .valueChanged)
     }
 }
 
@@ -56,5 +56,26 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewData
         let vc = ChartViewController()
         vc.viewModel.inputID.value = viewModel.outputFavoriteList.value[indexPath.item].id
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension FavoriteViewController {
+    func bindData() {
+        viewModel.outputFavoriteList.bind { _ in
+            self.favoriteView.collectionView.reloadData()
+        }
+        
+        viewModel.outputRefreshState.bind { state in
+            guard let state else { return }
+            
+            self.view.makeToast(state.rawValue, duration: 0.5)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.favoriteView.collectionView.refreshControl?.endRefreshing()
+            }
+        }
+    }
+    
+    @objc func refreshControlled() {
+        viewModel.inputRefreshTrigger.value = ()
     }
 }

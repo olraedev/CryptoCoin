@@ -82,7 +82,7 @@ class ChartView: BaseView {
         nameLabel.text = item.name
         priceLabel.text = FormatManager.shared.decimal(item.currentPrice)
         percentageLabel.text = FormatManager.shared.percentage(item.priceChangePercentage24h)
-        lastUpdateLabel.text = FormatManager.shared.dateIntervalSinceToday(date: item.lastUpdate)
+        lastUpdateLabel.text = FormatManager.shared.dayIntervalSinceToday(date: item.lastUpdate)
         fullUpdateLabel.text = FormatManager.shared.dateFormatting(item.lastUpdate, format: "MM/dd HH:mm:ss") + " 업데이트"
         
         if item.priceChangePercentage24h > 0 {

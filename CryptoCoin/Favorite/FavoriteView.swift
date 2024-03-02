@@ -15,6 +15,12 @@ class FavoriteView: BaseView {
         addSubview(collectionView)
     }
     
+    override func configureView() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = Design.Color.customPurple.fill
+        collectionView.refreshControl = refreshControl
+    }
+    
     override func configureConstraints() {
         collectionView.snp.makeConstraints { make in
             make.directionalEdges.equalTo(safeAreaLayoutGuide)

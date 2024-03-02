@@ -63,6 +63,7 @@
 		ECC91ADA2B92066900F9D4AC /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = ECC91AD92B92066900F9D4AC /* SkeletonView */; };
 		ECC91AE02B92FC3700F9D4AC /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91ADF2B92FC3600F9D4AC /* NetworkCheck.swift */; };
 		ECC91AE22B93147500F9D4AC /* MoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AE12B93147500F9D4AC /* MoreCollectionViewCell.swift */; };
+		ECC91AE42B933D3E00F9D4AC /* RefreshState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AE32B933D3E00F9D4AC /* RefreshState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		ECC91AD62B92025500F9D4AC /* SearchValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchValidationState.swift; sourceTree = "<group>"; };
 		ECC91ADF2B92FC3600F9D4AC /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
 		ECC91AE12B93147500F9D4AC /* MoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECC91AE32B933D3E00F9D4AC /* RefreshState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 		EC96DB0A2B8DB03C00732CF5 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				ECC91AE32B933D3E00F9D4AC /* RefreshState.swift */,
 				ECC91A812B8F304900F9D4AC /* FavoriteView.swift */,
 				EC96DB112B8DB0B000732CF5 /* FavoriteViewController.swift */,
 				ECC91A852B8F42B100F9D4AC /* FavoriteViewModel.swift */,
@@ -400,6 +403,7 @@
 				EC96DB122B8DB0B000732CF5 /* FavoriteViewController.swift in Sources */,
 				EC96DB302B8DC68200732CF5 /* CoingeckoAPIManager.swift in Sources */,
 				ECC91AD32B91CA9300F9D4AC /* TrendingViewModel.swift in Sources */,
+				ECC91AE42B933D3E00F9D4AC /* RefreshState.swift in Sources */,
 				ECC91AC32B907A5200F9D4AC /* TrendingView.swift in Sources */,
 				EC96DB172B8DB6A900732CF5 /* BaseViewController.swift in Sources */,
 				ECC91A952B8F7D7900F9D4AC /* ChartCollectionViewCell.swift in Sources */,

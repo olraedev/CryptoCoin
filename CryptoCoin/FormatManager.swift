@@ -22,13 +22,21 @@ class FormatManager {
         return Date()
     }
     
-    // 현재 시간이랑 얼마나 차이나는지
-    func dateIntervalSinceToday(date: Date) -> String {
+    // 현재 날짜랑 며칠 차이나는지
+    func dayIntervalSinceToday(date: Date) -> String {
         let timeInterval = Int(Date().timeIntervalSince(date))
         let day = timeInterval / (60 * 60 * 12)
         
         if day <= 0 { return "Today" }
         return "\(day)일 전"
+    }
+    
+    // 현재 시간이랑 몇 초 차이나는지
+    func secondIntervalSinceToday(date: Date) -> Int {
+        let timeInterval = Int(Date().timeIntervalSince(date))
+        let second = timeInterval
+        
+        return second
     }
     
     // 날짜를 원하는 포맷으로 변경
