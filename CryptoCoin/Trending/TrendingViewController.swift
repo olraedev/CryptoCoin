@@ -36,6 +36,7 @@ class TrendingViewController: BaseViewController {
         trendingView.collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.identifier)
         trendingView.collectionView.register(FavoriteSectionCollectionViewCell.self, forCellWithReuseIdentifier: FavoriteSectionCollectionViewCell.identifier)
         trendingView.collectionView.register(RankCollectionViewCell.self, forCellWithReuseIdentifier: RankCollectionViewCell.identifier)
+        trendingView.collectionView.register(MoreCollectionViewCell.self, forCellWithReuseIdentifier: MoreCollectionViewCell.identifier)
     }
 }
 
@@ -52,7 +53,13 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch TrendingSection(rawValue: section) {
-        case .favorite: return viewModel.outputFavoriteList.value.count
+        case .favorite:
+            let favoriteListCount = viewModel.outputFavoriteList.value.count
+            if favoriteListCount < 2 { return 0 }
+            else if 2 <= favoriteListCount && favoriteListCount < 4  {
+                return favoriteListCount
+            }
+            else { return 4 }
         case .top15Coin: return viewModel.outputCoinRankList.value.count
         case .top7NFT: return viewModel.outputNftRankList.value.count
         case .none: return 0
@@ -62,11 +69,15 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch TrendingSection(rawValue: indexPath.section) {
         case .favorite:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteSectionCollectionViewCell.identifier, for: indexPath) as! FavoriteSectionCollectionViewCell
+            if indexPath.item < 3 {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteSectionCollectionViewCell.identifier, for: indexPath) as! FavoriteSectionCollectionViewCell
+                cell.configureCell(viewModel.outputFavoriteList.value[indexPath.item])
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoreCollectionViewCell.identifier, for: indexPath) as! MoreCollectionViewCell
+                return cell
+            }
             
-            cell.configureCell(viewModel.outputFavoriteList.value[indexPath.item])
-            
-            return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RankCollectionViewCell.identifier, for: indexPath) as! RankCollectionViewCell
             
@@ -84,7 +95,13 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
         let vc = ChartViewController()
         
         switch TrendingSection(rawValue: indexPath.section) {
-        case .favorite: vc.viewModel.inputID.value = viewModel.outputFavoriteList.value[indexPath.item].id
+        case .favorite:
+            if indexPath.item < 3 {
+                vc.viewModel.inputID.value = viewModel.outputFavoriteList.value[indexPath.item].id
+            } else {
+                tabBarController?.selectedIndex = 2
+                return
+            }
         case .top15Coin: vc.viewModel.inputID.value = viewModel.outputCoinRankList.value[indexPath.item].item.id
         default: break
         }

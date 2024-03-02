@@ -127,6 +127,7 @@ extension RankCollectionViewCell {
         symbolLabel.snp.makeConstraints { make in
             make.bottom.equalTo(thumbImageView.snp.bottom)
             make.leading.equalTo(thumbImageView.snp.trailing).offset(8)
+            make.width.equalTo(100)
             make.height.equalTo(22)
         }
         

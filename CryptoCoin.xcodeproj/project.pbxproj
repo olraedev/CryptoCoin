@@ -62,6 +62,7 @@
 		ECC91AD72B92025500F9D4AC /* SearchValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AD62B92025500F9D4AC /* SearchValidationState.swift */; };
 		ECC91ADA2B92066900F9D4AC /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = ECC91AD92B92066900F9D4AC /* SkeletonView */; };
 		ECC91AE02B92FC3700F9D4AC /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91ADF2B92FC3600F9D4AC /* NetworkCheck.swift */; };
+		ECC91AE22B93147500F9D4AC /* MoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AE12B93147500F9D4AC /* MoreCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		ECC91AD42B91D07100F9D4AC /* CoingeckoTrendingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoTrendingData.swift; sourceTree = "<group>"; };
 		ECC91AD62B92025500F9D4AC /* SearchValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchValidationState.swift; sourceTree = "<group>"; };
 		ECC91ADF2B92FC3600F9D4AC /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
+		ECC91AE12B93147500F9D4AC /* MoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				ECC91AD22B91CA9300F9D4AC /* TrendingViewModel.swift */,
 				ECC91ACC2B91BB9000F9D4AC /* FavoriteSectionCollectionViewCell.swift */,
 				ECC91ACE2B91BE4400F9D4AC /* RankCollectionViewCell.swift */,
+				ECC91AE12B93147500F9D4AC /* MoreCollectionViewCell.swift */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC91AE22B93147500F9D4AC /* MoreCollectionViewCell.swift in Sources */,
 				ECC91A862B8F42B100F9D4AC /* FavoriteViewModel.swift in Sources */,
 				ECC91A882B8F5FE000F9D4AC /* ChartViewController.swift in Sources */,
 				ECC91A842B8F31CF00F9D4AC /* FavoriteCollectionViewCell.swift in Sources */,
