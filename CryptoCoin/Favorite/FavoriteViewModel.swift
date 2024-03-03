@@ -18,6 +18,7 @@ class FavoriteViewModel {
     
     var outputFavoriteList: Observable<[RmFavoriteCoinList]> = Observable([])
     var outputRefreshState: Observable<RefreshState?> = Observable(nil)
+    var outputError: Observable<CoingeckoRequestError?> = Observable(nil)
     
     init() {
         inputViewWillAppearTrigger.bind { value in
@@ -60,16 +61,22 @@ class FavoriteViewModel {
         let group = DispatchGroup()
         
         group.enter()
-        CoingeckoAPIManager.shared.fetch([CoingeckoMarketData].self, api: .market(vsCurrency: "krw", ids: ids.joined(separator: ","), sparkline: "true")) { marketData in
-            marketData.forEach { value in
-                let rmFavoriteCoinList = FormatManager.shared.responseMarketDataToRealm(value)
-                repository.updateEmptyMarketDataList(rmFavoriteCoinList)
+        CoingeckoAPIManager.shared.fetch([CoingeckoMarketData].self, api: .market(vsCurrency: "krw", ids: ids.joined(separator: ","), sparkline: "true")) { result in
+            switch result {
+            case .success(let marketData):
+                marketData.forEach { value in
+                    let rmFavoriteCoinList = FormatManager.shared.responseMarketDataToRealm(value)
+                    repository.updateEmptyMarketDataList(rmFavoriteCoinList)
+                }
+                self.outputRefreshState.value = .success
+            case .failure(let failure):
+                self.outputError.value = failure
             }
+            
             group.leave()
         }
         
         group.notify(queue: .main) {
-            self.outputRefreshState.value = .success
             self.outputFavoriteList.value = repository.readAll(RmFavoriteCoinList.self)
         }
     }

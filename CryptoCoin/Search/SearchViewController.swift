@@ -81,6 +81,8 @@ extension SearchViewController {
         }
         
         viewModel.outputSearchState.bind { state in
+            guard let state else { return }
+            
             switch state {
             case .includeSpecialCharacters, .length, .empty:
                 self.showAlert(title: "검색 실패", message: state.rawValue)
@@ -93,10 +95,17 @@ extension SearchViewController {
         }
         
         viewModel.outputFavoriteState.bind { state in
+            guard let state else { return }
+            
             switch state {
             case .append, .remove: self.view.makeToast(state.rawValue, duration: 0.5)
             case .full: self.showAlert(title: "즐겨찾기 실패", message: state.rawValue)
             }
+        }
+        
+        viewModel.outputError.bind { error in
+            guard let error else { return }
+            self.view.makeToast(error.rawValue, duration: 0.5)
         }
     }
     

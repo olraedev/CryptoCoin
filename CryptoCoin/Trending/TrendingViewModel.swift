@@ -16,6 +16,7 @@ class TrendingViewModel {
     var outputFavoriteList: Observable<[RmFavoriteCoinList]> = Observable([])
     var outputCoinRankList: Observable<[CoinItem]> = Observable([])
     var outputNftRankList: Observable<[NftsItem]> = Observable([])
+    var outputError: Observable<CoingeckoRequestError?> = Observable(nil)
     
     init() {
         inputViewWillAppearTrigger.bind { _ in
@@ -29,10 +30,15 @@ class TrendingViewModel {
         RealmManager.shared.requestToCoingecko {
             self.outputFavoriteList.value = repository.readAll(RmFavoriteCoinList.self)
         }
-        
-        CoingeckoAPIManager.shared.fetch(CoingeckoTrendingData.self, api: .trending) { trendingData in
-            self.outputCoinRankList.value = trendingData.coins
-            self.outputNftRankList.value = trendingData.nfts
+
+        CoingeckoAPIManager.shared.fetch(CoingeckoTrendingData.self, api: .trending) { result in
+            switch result {
+            case .success(let success):
+                self.outputCoinRankList.value = success.coins
+                self.outputNftRankList.value = success.nfts
+            case .failure(let failure):
+                self.outputError.value = failure
+            }
         }
     }
 }

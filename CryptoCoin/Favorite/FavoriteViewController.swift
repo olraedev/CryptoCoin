@@ -80,6 +80,11 @@ extension FavoriteViewController {
                 self.favoriteView.collectionView.refreshControl?.endRefreshing()
             }
         }
+        
+        viewModel.outputError.bind { error in
+            guard let error else { return }
+            self.view.makeToast(error.rawValue, duration: 0.5)
+        }
     }
     
     @objc func refreshControlled() {

@@ -123,5 +123,10 @@ extension TrendingViewController {
         viewModel.outputNftRankList.bind { _ in
             self.trendingView.collectionView.reloadSections(IndexSet(integer: 2))
         }
+        
+        viewModel.outputError.bind { error in
+            guard let error else { return }
+            self.view.makeToast(error.rawValue, duration: 0.5)
+        }
     }
 }

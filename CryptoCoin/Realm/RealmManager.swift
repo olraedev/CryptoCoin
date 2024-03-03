@@ -30,10 +30,15 @@ class RealmManager {
         let group = DispatchGroup()
         
         group.enter()
-        CoingeckoAPIManager.shared.fetch([CoingeckoMarketData].self, api: .market(vsCurrency: "krw", ids: ids.joined(separator: ","), sparkline: "true")) { marketData in
-            marketData.forEach { value in
-                let rmFavoriteCoinList = FormatManager.shared.responseMarketDataToRealm(value)
-                repository.updateEmptyMarketDataList(rmFavoriteCoinList)
+        CoingeckoAPIManager.shared.fetch([CoingeckoMarketData].self, api: .market(vsCurrency: "krw", ids: ids.joined(separator: ","), sparkline: "true")) { result in
+            switch result {
+            case .success(let marketData):
+                marketData.forEach { value in
+                    let rmFavoriteCoinList = FormatManager.shared.responseMarketDataToRealm(value)
+                    repository.updateEmptyMarketDataList(rmFavoriteCoinList)
+                }
+            case .failure(let failure):
+                print(failure)
             }
             group.leave()
         }

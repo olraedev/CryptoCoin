@@ -64,6 +64,7 @@
 		ECC91AE02B92FC3700F9D4AC /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91ADF2B92FC3600F9D4AC /* NetworkCheck.swift */; };
 		ECC91AE22B93147500F9D4AC /* MoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AE12B93147500F9D4AC /* MoreCollectionViewCell.swift */; };
 		ECC91AE42B933D3E00F9D4AC /* RefreshState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AE32B933D3E00F9D4AC /* RefreshState.swift */; };
+		ECC91AE62B9471EC00F9D4AC /* CoingeckoRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AE52B9471EC00F9D4AC /* CoingeckoRequestError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		ECC91ADF2B92FC3600F9D4AC /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
 		ECC91AE12B93147500F9D4AC /* MoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC91AE32B933D3E00F9D4AC /* RefreshState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshState.swift; sourceTree = "<group>"; };
+		ECC91AE52B9471EC00F9D4AC /* CoingeckoRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoRequestError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 				ECC91A782B8F065500F9D4AC /* CoingeckoMarketData.swift */,
 				EC96DB342B8DC92200732CF5 /* CoingeckoAPI.swift */,
 				EC96DB2F2B8DC68200732CF5 /* CoingeckoAPIManager.swift */,
+				ECC91AE52B9471EC00F9D4AC /* CoingeckoRequestError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				EC96DB4A2B8E232600732CF5 /* RealmRepository.swift in Sources */,
 				ECC91A8C2B8F643400F9D4AC /* ChartItem.swift in Sources */,
 				EC96DB142B8DB0B800732CF5 /* SettingViewController.swift in Sources */,
+				ECC91AE62B9471EC00F9D4AC /* CoingeckoRequestError.swift in Sources */,
 				ECC91AD12B91BF7200F9D4AC /* HeaderView.swift in Sources */,
 				EC96DB352B8DC92200732CF5 /* CoingeckoAPI.swift in Sources */,
 				EC96DB482B8E1FCE00732CF5 /* RealmModel.swift in Sources */,

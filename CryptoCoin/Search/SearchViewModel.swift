@@ -16,9 +16,10 @@ class SearchViewModel {
     var inputFavoriteButtonTrigger: Observable<String?> = Observable(nil)
     
     var outputSearchList: Observable<[CoingeckoCoinsData]> = Observable([])
-    var outputSearchState: Observable<SearchValidationState> = Observable(.success)
+    var outputSearchState: Observable<SearchValidationState?> = Observable(nil)
     var outputFavoriteListIDs: Observable<[String]> = Observable([])
-    var outputFavoriteState: Observable<FavoriteButtonClickedState> = Observable(.append)
+    var outputFavoriteState: Observable<FavoriteButtonClickedState?> = Observable(nil)
+    var outputError: Observable<CoingeckoRequestError?> = Observable(nil)
     
     init() {
         guard let repository else { return }
@@ -119,8 +120,14 @@ class SearchViewModel {
         let group = DispatchGroup()
         
         group.enter()
-        CoingeckoAPIManager.shared.fetch(CoingeckoSearchData.self, api: .search(query: query)) { searchList in
-            self.outputSearchList.value = searchList.coins
+        CoingeckoAPIManager.shared.fetch(CoingeckoSearchData.self, api: .search(query: query)) { result in
+            switch result {
+            case .success(let searchList):
+                self.outputSearchList.value = searchList.coins
+            case .failure(let failure):
+                self.outputError.value = failure
+            }
+            
             group.leave()
         }
         

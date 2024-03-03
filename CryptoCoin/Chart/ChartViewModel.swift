@@ -20,6 +20,7 @@ class ChartViewModel {
     var outputFavoriteState = Observable(false)
     var outputFavoriteButtonClickedState: Observable<FavoriteButtonClickedState?> = Observable(nil)
     var outputRefreshState: Observable<RefreshState?> = Observable(nil)
+    var outputError: Observable<CoingeckoRequestError?> = Observable(nil)
     
     init() {
         inputID.bind { id in
@@ -44,6 +45,7 @@ class ChartViewModel {
         guard let id = inputID.value else { return }
         
         RealmManager.shared.favoriteButtonClicked(id) { state in
+            if state == .remove { self.outputCoinMarketData.value = nil }
             self.outputFavoriteButtonClickedState.value = state
             self.setFavoriteState()
         }
@@ -76,34 +78,53 @@ class ChartViewModel {
                 if secondInterval < 45 {
                     self.outputCoinMarketData.value = marketData
                     self.outputRefreshState.value = .alreadyLatest
+                    return
                 }
             }
-            
             // market 데이터가 없거나, 45초가 지난 경우 market데이터를 불러와야함
-            else {
-                let group = DispatchGroup()
-                
-                group.enter()
-                CoingeckoAPIManager.shared.fetch([CoingeckoMarketData].self,
-                                                 api: .market(vsCurrency: "krw", ids: id, sparkline: "true")) { responseMarketData in
+            let group = DispatchGroup()
+            
+            group.enter()
+            CoingeckoAPIManager.shared.fetch([CoingeckoMarketData].self,
+                                             api: .market(vsCurrency: "krw", ids: id, sparkline: "true")) { result in
+                switch result {
+                case .success(let responseMarketData):
                     let rmFavoriteCoinList = FormatManager.shared.responseMarketDataToRealm(responseMarketData[0])
                     repository.updateEmptyMarketDataList(rmFavoriteCoinList)
-                    group.leave()
-                }
-                
-                group.notify(queue: .main) {
-                    self.outputCoinMarketData.value = repository.readForPrimaryKey(RmFavoriteCoinList.self, primaryKey: id)?.marketData
                     self.outputRefreshState.value = .success
+                case .failure(let failure):
+                    self.outputError.value = failure
                 }
+                group.leave()
+            }
+            
+            group.notify(queue: .main) {
+                self.outputCoinMarketData.value = repository.readForPrimaryKey(RmFavoriteCoinList.self, primaryKey: id)?.marketData
             }
             return
         }
         
+        // 즐겨 찾기는 안했지만 이전 항목이 남아있음
+        if let value = outputCoinMarketData.value {
+            let secondInterval = FormatManager.shared.secondIntervalSinceToday(date: value.lastUpdate)
+            
+            // 45초가 안 지났으니 그냥 냅둬!
+            if secondInterval < 45 {
+                self.outputRefreshState.value = .alreadyLatest
+                return
+            }
+        }
+        
         // 즐겨 찾기를 안한 항목이냐..?
         CoingeckoAPIManager.shared.fetch([CoingeckoMarketData].self,
-                                         api: .market(vsCurrency: "krw", ids: id, sparkline: "true")) { responseMarketData in
-            self.outputCoinMarketData.value = FormatManager.shared.responseMarketDataToRealm(responseMarketData[0]).marketData
-            self.outputRefreshState.value = .success
+                                         api: .market(vsCurrency: "krw", ids: id, sparkline: "true")) { result in
+            switch result {
+            case .success(let responseMarketData):
+                self.outputCoinMarketData.value = FormatManager.shared.responseMarketDataToRealm(responseMarketData[0]).marketData
+                self.outputRefreshState.value = .success
+            case .failure(let failure):
+                self.outputError.value = failure
+            }
         }
     }
 }

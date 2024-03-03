@@ -60,6 +60,8 @@ extension ChartViewController {
     
     func bindData() {
         viewModel.outputCoinMarketData.bind { marketData in
+            guard let marketData else { return }
+            
             self.chartView.designView(marketData)
             self.chartView.collectionView.reloadData()
         }
@@ -87,6 +89,11 @@ extension ChartViewController {
             guard let state else { return }
             
             self.view.makeToast(state.rawValue, duration: 0.5)
+        }
+        
+        viewModel.outputError.bind { error in
+            guard let error else { return }
+            self.view.makeToast(error.rawValue, duration: 0.5)
         }
     }
     
