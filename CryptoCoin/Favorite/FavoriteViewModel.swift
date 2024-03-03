@@ -11,6 +11,8 @@ class FavoriteViewModel {
     
     private let repository = RealmRepository()
     
+    var timer = Timer()
+    
     var inputViewWillAppearTrigger: Observable<Void?> = Observable(nil)
     var inputRefreshTrigger: Observable<Void?> = Observable(nil)
     
@@ -21,16 +23,21 @@ class FavoriteViewModel {
         inputViewWillAppearTrigger.bind { value in
             guard let _ = value else { return }
             self.fetch()
+            self.setTimer()
         }
         
         inputRefreshTrigger.bind { value in
             guard let _ = value else { return }
-            self.refreshFavoriteCoinList()
+            self.refreshFavoriteCoinList(sender: nil)
         }
     }
     
+    private func setTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(refreshFavoriteCoinList(sender:)), userInfo: nil, repeats: true)
+    }
+    
     // 불필요한 콜 수 줄이기 위해 45초가 지난 항목만 업데이트
-    private func refreshFavoriteCoinList() {
+    @objc private func refreshFavoriteCoinList(sender: Timer?) {
         guard let repository else { return }
         
         // 즐겨찾기 목록에서 최종 업데이트 시간이 45초가 지난 항목 가져오기

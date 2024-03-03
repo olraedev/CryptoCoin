@@ -28,6 +28,13 @@ class FavoriteViewController: BaseViewController {
         viewModel.inputViewWillAppearTrigger.value = ()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // 다른 화면으로 이동시, 타이머 종료..
+        viewModel.timer.invalidate()
+    }
+    
     override func configureView(navigationTitle: String) {
         super.configureView(navigationTitle: "Favorite Coin")
         

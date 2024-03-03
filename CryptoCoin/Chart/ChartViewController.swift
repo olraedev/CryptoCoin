@@ -26,7 +26,9 @@ class ChartViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         navigationController?.navigationBar.prefersLargeTitles = true
+        viewModel.timer.invalidate()
     }
 }
 
@@ -73,10 +75,18 @@ extension ChartViewController {
         }
         
         viewModel.outputFavoriteButtonClickedState.bind { state in
+            guard let state else { return }
+            
             switch state {
             case .append, .remove: self.view.makeToast(state.rawValue, duration: 0.5)
             case .full: self.showAlert(title: "즐겨찾기 실패", message: state.rawValue)
             }
+        }
+        
+        viewModel.outputRefreshState.bind { state in
+            guard let state else { return }
+            
+            self.view.makeToast(state.rawValue, duration: 0.5)
         }
     }
     
