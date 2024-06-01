@@ -102,11 +102,12 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
                 tabBarController?.selectedIndex = 2
                 return
             }
-        case .top15Coin: vc.viewModel.inputID.value = viewModel.outputCoinRankList.value[indexPath.item].item.id
+            navigationController?.pushViewController(vc, animated: true)
+        case .top15Coin:
+            vc.viewModel.inputID.value = viewModel.outputCoinRankList.value[indexPath.item].item.id
+            navigationController?.pushViewController(vc, animated: true)
         default: break
         }
-        
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

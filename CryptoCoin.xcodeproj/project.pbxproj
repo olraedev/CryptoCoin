@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC45DCA42C0A2172009ADA5C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC45DCA32C0A2172009ADA5C /* SnapKit */; };
+		EC45DCA72C0A2181009ADA5C /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = EC45DCA62C0A2181009ADA5C /* DGCharts */; };
+		EC45DCA92C0B27B9009ADA5C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EC45DCA82C0B27B9009ADA5C /* .gitignore */; };
+		EC45DCAB2C0B27D0009ADA5C /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45DCAA2C0B27D0009ADA5C /* APIKey.swift */; };
 		EC96DAF32B8DACA400732CF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DAF22B8DACA400732CF5 /* AppDelegate.swift */; };
 		EC96DAF52B8DACA400732CF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DAF42B8DACA400732CF5 /* SceneDelegate.swift */; };
 		EC96DAFC2B8DACA600732CF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC96DAFB2B8DACA600732CF5 /* Assets.xcassets */; };
@@ -20,8 +24,6 @@
 		EC96DB192B8DB6E600732CF5 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB182B8DB6E600732CF5 /* BaseView.swift */; };
 		EC96DB1B2B8DB74600732CF5 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB1A2B8DB74600732CF5 /* RoundImageView.swift */; };
 		EC96DB202B8DB9E800732CF5 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB1F2B8DB9E800732CF5 /* Design.swift */; };
-		EC96DB232B8DBD0100732CF5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC96DB222B8DBD0100732CF5 /* SnapKit */; };
-		EC96DB252B8DBD0100732CF5 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EC96DB242B8DBD0100732CF5 /* SnapKit-Dynamic */; };
 		EC96DB272B8DBF8E00732CF5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB262B8DBF8E00732CF5 /* SearchView.swift */; };
 		EC96DB292B8DBFDB00732CF5 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB282B8DBFDB00732CF5 /* SearchTableViewCell.swift */; };
 		EC96DB2B2B8DC14D00732CF5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC96DB2A2B8DC14D00732CF5 /* Extensions.swift */; };
@@ -47,8 +49,6 @@
 		ECC91A882B8F5FE000F9D4AC /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A872B8F5FE000F9D4AC /* ChartViewController.swift */; };
 		ECC91A8A2B8F60E000F9D4AC /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A892B8F60E000F9D4AC /* ChartView.swift */; };
 		ECC91A8C2B8F643400F9D4AC /* ChartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A8B2B8F643400F9D4AC /* ChartItem.swift */; };
-		ECC91A8F2B8F655800F9D4AC /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = ECC91A8E2B8F655800F9D4AC /* DGCharts */; };
-		ECC91A912B8F655800F9D4AC /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = ECC91A902B8F655800F9D4AC /* DGChartsDynamic */; };
 		ECC91A932B8F6CD400F9D4AC /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A922B8F6CD400F9D4AC /* ChartViewModel.swift */; };
 		ECC91A952B8F7D7900F9D4AC /* ChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91A942B8F7D7900F9D4AC /* ChartCollectionViewCell.swift */; };
 		ECC91AC12B9079D100F9D4AC /* TrendingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91AC02B9079D100F9D4AC /* TrendingSection.swift */; };
@@ -68,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC45DCA82C0B27B9009ADA5C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EC45DCAA2C0B27D0009ADA5C /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		EC96DAEF2B8DACA400732CF5 /* CryptoCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC96DAF22B8DACA400732CF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC96DAF42B8DACA400732CF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,15 +127,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECC91A8F2B8F655800F9D4AC /* DGCharts in Frameworks */,
+				EC45DCA72C0A2181009ADA5C /* DGCharts in Frameworks */,
 				EC96DB452B8E1F2200732CF5 /* RealmSwift in Frameworks */,
 				EC96DB402B8DEC7800732CF5 /* Kingfisher in Frameworks */,
 				EC96DB332B8DC8A400732CF5 /* Alamofire in Frameworks */,
+				EC45DCA42C0A2172009ADA5C /* SnapKit in Frameworks */,
 				ECC91ADA2B92066900F9D4AC /* SkeletonView in Frameworks */,
-				EC96DB232B8DBD0100732CF5 /* SnapKit in Frameworks */,
-				EC96DB252B8DBD0100732CF5 /* SnapKit-Dynamic in Frameworks */,
 				ECC91A7E2B8F171900F9D4AC /* Toast in Frameworks */,
-				ECC91A912B8F655800F9D4AC /* DGChartsDynamic in Frameworks */,
 				EC96DB432B8E1F2200732CF5 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +144,7 @@
 		EC96DAE62B8DACA400732CF5 = {
 			isa = PBXGroup;
 			children = (
+				EC45DCA82C0B27B9009ADA5C /* .gitignore */,
 				EC96DAF12B8DACA400732CF5 /* CryptoCoin */,
 				EC96DAF02B8DACA400732CF5 /* Products */,
 			);
@@ -265,6 +266,7 @@
 		EC96DB2E2B8DC63700732CF5 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				EC45DCAA2C0B27D0009ADA5C /* APIKey.swift */,
 				ECC91AD42B91D07100F9D4AC /* CoingeckoTrendingData.swift */,
 				EC96DB372B8DD83900732CF5 /* CoingeckoSearchData.swift */,
 				ECC91A782B8F065500F9D4AC /* CoingeckoMarketData.swift */,
@@ -310,16 +312,14 @@
 			);
 			name = CryptoCoin;
 			packageProductDependencies = (
-				EC96DB222B8DBD0100732CF5 /* SnapKit */,
-				EC96DB242B8DBD0100732CF5 /* SnapKit-Dynamic */,
 				EC96DB322B8DC8A400732CF5 /* Alamofire */,
 				EC96DB3F2B8DEC7800732CF5 /* Kingfisher */,
 				EC96DB422B8E1F2200732CF5 /* Realm */,
 				EC96DB442B8E1F2200732CF5 /* RealmSwift */,
 				ECC91A7D2B8F171900F9D4AC /* Toast */,
-				ECC91A8E2B8F655800F9D4AC /* DGCharts */,
-				ECC91A902B8F655800F9D4AC /* DGChartsDynamic */,
 				ECC91AD92B92066900F9D4AC /* SkeletonView */,
+				EC45DCA32C0A2172009ADA5C /* SnapKit */,
+				EC45DCA62C0A2181009ADA5C /* DGCharts */,
 			);
 			productName = CryptoCoin;
 			productReference = EC96DAEF2B8DACA400732CF5 /* CryptoCoin.app */;
@@ -350,13 +350,13 @@
 			);
 			mainGroup = EC96DAE62B8DACA400732CF5;
 			packageReferences = (
-				EC96DB212B8DBD0100732CF5 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EC96DB312B8DC8A400732CF5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				EC96DB3E2B8DEC7800732CF5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				EC96DB412B8E1F2200732CF5 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				ECC91A7C2B8F171900F9D4AC /* XCRemoteSwiftPackageReference "Toast-Swift" */,
-				ECC91A8D2B8F655800F9D4AC /* XCRemoteSwiftPackageReference "Charts" */,
 				ECC91AD82B92066900F9D4AC /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				EC45DCA22C0A2172009ADA5C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EC45DCA52C0A2181009ADA5C /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = EC96DAF02B8DACA400732CF5 /* Products */;
 			projectDirPath = "";
@@ -372,6 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC45DCA92C0B27B9009ADA5C /* .gitignore in Resources */,
 				EC96DB072B8DADBD00732CF5 /* Colors.xcassets in Resources */,
 				EC96DAFF2B8DACA600732CF5 /* LaunchScreen.storyboard in Resources */,
 				EC96DAFC2B8DACA600732CF5 /* Assets.xcassets in Resources */,
@@ -387,6 +388,7 @@
 			files = (
 				ECC91AE22B93147500F9D4AC /* MoreCollectionViewCell.swift in Sources */,
 				ECC91A862B8F42B100F9D4AC /* FavoriteViewModel.swift in Sources */,
+				EC45DCAB2C0B27D0009ADA5C /* APIKey.swift in Sources */,
 				ECC91A882B8F5FE000F9D4AC /* ChartViewController.swift in Sources */,
 				ECC91A842B8F31CF00F9D4AC /* FavoriteCollectionViewCell.swift in Sources */,
 				EC96DB3C2B8DDA3B00732CF5 /* Observable.swift in Sources */,
@@ -575,6 +577,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoCoin/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "김상래";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -607,6 +610,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoCoin/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "김상래";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -654,12 +658,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EC96DB212B8DBD0100732CF5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		EC45DCA22C0A2172009ADA5C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.7.1;
+			};
+		};
+		EC45DCA52C0A2181009ADA5C /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
 			};
 		};
 		EC96DB312B8DC8A400732CF5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -694,14 +706,6 @@
 				minimumVersion = 5.1.0;
 			};
 		};
-		ECC91A8D2B8F655800F9D4AC /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.0;
-			};
-		};
 		ECC91AD82B92066900F9D4AC /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
@@ -713,15 +717,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC96DB222B8DBD0100732CF5 /* SnapKit */ = {
+		EC45DCA32C0A2172009ADA5C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EC96DB212B8DBD0100732CF5 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = EC45DCA22C0A2172009ADA5C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		EC96DB242B8DBD0100732CF5 /* SnapKit-Dynamic */ = {
+		EC45DCA62C0A2181009ADA5C /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EC96DB212B8DBD0100732CF5 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
+			package = EC45DCA52C0A2181009ADA5C /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 		EC96DB322B8DC8A400732CF5 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -747,16 +751,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ECC91A7C2B8F171900F9D4AC /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
-		};
-		ECC91A8E2B8F655800F9D4AC /* DGCharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ECC91A8D2B8F655800F9D4AC /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = DGCharts;
-		};
-		ECC91A902B8F655800F9D4AC /* DGChartsDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ECC91A8D2B8F655800F9D4AC /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = DGChartsDynamic;
 		};
 		ECC91AD92B92066900F9D4AC /* SkeletonView */ = {
 			isa = XCSwiftPackageProductDependency;

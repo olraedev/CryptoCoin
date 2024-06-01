@@ -31,4 +31,9 @@ enum CoingeckoAPI {
             ["vs_currency": vsCurrency, "ids": ids, "sparkline": sparkline]
         }
     }
+    
+    var header: HTTPHeaders {
+        return ["accept": "application/json",
+         "x-cg-demo-api-key": APIKey.secretKey]
+    }
 }

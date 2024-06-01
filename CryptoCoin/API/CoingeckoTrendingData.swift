@@ -26,7 +26,7 @@ struct CoinInfo: Decodable {
 }
 
 struct CoinData: Decodable {
-    let price: String
+    let price: Double
     let priceChangePercentage24h: Percentage
     
     enum CodingKeys: String, CodingKey {

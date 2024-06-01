@@ -109,8 +109,13 @@ class ChartView: BaseView {
         dataSet.drawFilledEnabled = true
         dataSet.mode = .cubicBezier
         dataSet.setColor(Design.Color.customPurple.fill)
-        dataSet.fillColor = Design.Color.customPurple.fill
-        dataSet.fillAlpha = 0.3
+        // dataSet.fillColor = Design.Color.customPurple.fill
+        // dataSet.fillAlpha = 0.3
+        
+        let gradientColors = [Design.Color.customPurple.fill.cgColor, UIColor.clear.cgColor] as CFArray
+        let colorLocations:[CGFloat] = [1.0, 0.0]
+        let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations)
+        dataSet.fill = LinearGradientFill(gradient: gradient!, angle: 90.0)
         
         let data = LineChartData(dataSet: dataSet)
         data.setDrawValues(false)
