@@ -119,7 +119,7 @@ Coingecko API를 이용한 코인 정보 앱
     <details>
     <summary>API 명세서</summary>
 
-    <img src="https://github.com/olraedev/CryptoCoin/assets/109517070/1f02157d-06d2-41f0-8116-7c940a875cea" width="400" height="300"/>
+    <img src="https://github.com/olraedev/CryptoCoin/assets/109517070/1f02157d-06d2-41f0-8116-7c940a875cea" width="600" height="300"/>
 
     </details>
 
@@ -156,7 +156,7 @@ Coingecko API를 이용한 코인 정보 앱
 
 <br>
 
-### 3) 피드
+### 3) 즐겨찾기
 | <img src="https://github.com/olraedev/CryptoCoin/assets/109517070/42e38f82-b2ba-46ca-ad09-810c699c3c49" width="200" height="400"/> | <img src="https://github.com/olraedev/CryptoCoin/assets/109517070/45269edd-64bb-484d-adc3-9e39fb8de098" width="200" height="400"/> |
 |:----------:|:----------:|
 | 기본 | 새로고침 |
